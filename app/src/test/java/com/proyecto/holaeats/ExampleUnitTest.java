@@ -1,4 +1,4 @@
-package com.example.holaeats;
+package com.proyecto.holaeats;
 
 import org.junit.Test;
 

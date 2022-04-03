@@ -1,4 +1,4 @@
-package com.example.holaeats;
+package com.proyecto.holaeats;
 
 import androidx.appcompat.app.AppCompatActivity;
 
