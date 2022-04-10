@@ -17,11 +17,11 @@ public interface ServicePersona {
     //@GET("listar")
     //Call<List<Persona>> getPersonas();
 
-    @PUT("/addUser")
+    @PUT("addUser")
     Call<ResponseClass> addUser(@Body Persona responseRegisterClass);
 
 
-    @POST("/getUser")
+    @POST("getUser")
     Call<ResponseClass> getUser(@Body Persona responseRegisterClass);
 }
 
