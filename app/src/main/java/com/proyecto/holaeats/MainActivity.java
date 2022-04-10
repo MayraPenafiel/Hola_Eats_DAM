@@ -25,25 +25,13 @@ public class MainActivity extends AppCompatActivity {
         logoIVDibujo.setAnimation(animacion);
 
 
-
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent intent= new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        }, 4000);
-
-
-
-        /*new Handler().postDelayed(new Runnable() {
-        @Override
-           public void run() {
-               Intent intent= new Intent(MainActivity.this, LoginActivity.class);
-               startActivity(intent);
-               finish();
-           }
-        }, 4000);*/
+        //new Handler().postDelayed(new Runnable() {
+       //     @Override
+       //     public void run() {
+       //         Intent intent= new Intent(MainActivity.this, Interfaz_Perfil.class);
+       //         startActivity(intent);
+       //         finish();
+       //     }
+        //}, 4000);
     }
 }
