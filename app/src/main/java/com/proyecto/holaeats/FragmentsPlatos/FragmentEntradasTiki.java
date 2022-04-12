@@ -1,30 +1,49 @@
 package com.proyecto.holaeats.FragmentsPlatos;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 
 import com.proyecto.holaeats.R;
+import com.proyecto.holaeats.adaptadores.RecyclerAdaptadorPlatos;
+import com.proyecto.holaeats.api.Apis;
+import com.proyecto.holaeats.api.ServiceProducto;
+import com.proyecto.holaeats.modelo.Producto;
+
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
 
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link FragmentEntradasTiki#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class FragmentEntradasTiki extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+    //Variables********************************
+
+   List<Producto> listaProducto;
+   RecyclerAdaptadorPlatos adaptadorPlatos;
+    RecyclerView recyclerView;
+    Retrofit retrofit;
+
+
+
 
     public FragmentEntradasTiki() {
         // Required empty public constructor
@@ -61,6 +80,56 @@ public class FragmentEntradasTiki extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_entradas_tiki, container, false);
+        View vista=inflater.inflate(R.layout.fragment_entradas_tiki,container,false);
+
+        //recyclerProductos=(RecyclerView)vista.findViewById(R.id.RecyclerIdPlato);
+        recyclerView=(RecyclerView)vista.findViewById(R.id.RecyclerIdPlato);
+        //recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
+
+        //verProductos();
+        //RecyclerAdaptadorPlatos  adaptadorPlatos=new RecyclerAdaptadorPlatos(listaProducto);
+        //recyclerView.setAdapter(adaptadorPlatos);
+        //AdapterProducto  adaptador=new AdapterProducto(listaProducto);
+       // recyclerProductos.setAdapter(adaptador);
+        initValues();
+        return vista;
+
     }
+    private  void initValues(){
+
+        //LinearLayoutManager manager=new GridLayoutManager(getContext(),2);
+        //recyclerView.setLayoutManager(manager);
+        getItemsSQL();
+    }
+    public void verProductos(){
+        listaProducto.add(new Producto("1","12","Cochas",R.drawable.ceviche_de_concha,"Marizco","Con camrones",23,10));
+        listaProducto.add(new Producto("1","12","Cochas",R.drawable.ceviche_de_concha,"Marizco","Con camrones",23,10));
+        listaProducto.add(new Producto("1","12","Cochas",R.drawable.ceviche_de_concha,"Marizco","Con camrones",23,10));
+        listaProducto.add(new Producto("1","12","Cochas",R.drawable.ceviche_de_concha,"Marizco","Con camrones",23,10));
+        listaProducto.add(new Producto("1","12","Cochas",R.drawable.ceviche_de_concha,"Marizco","Con camrones",23,10));
+    }
+
+    private void getItemsSQL() {
+        ServiceProducto service = Apis.getInstance().create(ServiceProducto.class);
+        Call<List<Producto>> call =service.getProductos();
+           call.enqueue(new Callback<List<Producto>>() {
+         @Override
+         public void onResponse(Call<List<Producto>> call, Response<List<Producto>> response) {
+             LinearLayoutManager manager=new GridLayoutManager(getContext(),2);
+             recyclerView.setLayoutManager(manager);
+             listaProducto=response.body();
+             adaptadorPlatos=new RecyclerAdaptadorPlatos(getContext(),listaProducto);
+             recyclerView.setAdapter(adaptadorPlatos);
+
+         }
+
+         @Override
+         public void onFailure(Call<List<Producto>> call, Throwable t) {
+
+             Toast.makeText(getActivity(), "Error: "+t.getMessage(), Toast.LENGTH_LONG).show();
+         }
+     });
+    }
+
+
 }

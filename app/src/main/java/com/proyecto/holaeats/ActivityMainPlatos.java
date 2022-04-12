@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 
-import com.proyecto.holaeats.FragmentsPlatos.FragmentEntradasTiki;
 import com.proyecto.holaeats.FragmentsPlatos.FragmentSopasTiki;
 import com.proyecto.holaeats.FragmentsPlatos.FragmentTikiFuertes;
 import com.proyecto.holaeats.FragmentsPlatos.FragmentTikiHouse;
