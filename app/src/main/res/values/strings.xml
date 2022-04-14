@@ -23,8 +23,4 @@
     <string name="descripcion2txt">¡Usted ha rechazado o\n cancelado el pedido!</string>
     <string name="btncancelarpedido">¡VOLVER AL INICIO!</string>
     <string name="Bienvenido">Bienvenido</string>
-    <string name="histrialpedido">Historial de Pedidos</string>
-    <string name="controlpedidos">Control de Pedidos</string>
-    <string name="terminos">Terminos y condiciones</string>
-    <string name="politica">Politica de Privacidad</string>
 </resources>
