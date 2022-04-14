@@ -3,7 +3,7 @@ package com.proyecto.holaeats;
 import androidx.appcompat.app.AppCompatActivity;
 
 
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -55,10 +55,13 @@ public class RegisterActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(Call<ResponseClass> call, Response<ResponseClass> response) {
                             if (response.body() != null) {
-                                Toast.makeText(RegisterActivity.this, "Registration successful", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(RegisterActivity.this, "Registro con exito", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                                startActivity(intent);
+
                                 finish();
                             } else {
-                                Toast.makeText(RegisterActivity.this, "something went wrong! please try again", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(RegisterActivity.this, "alg salio mal! intentelo otra vez", Toast.LENGTH_SHORT).show();
                             }
                         }
 
