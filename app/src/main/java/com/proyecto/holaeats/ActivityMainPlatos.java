@@ -1,13 +1,18 @@
 package com.proyecto.holaeats;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.proyecto.holaeats.FragmentsPlatos.FragmentEntradasTiki;
 import com.proyecto.holaeats.FragmentsPlatos.FragmentSopasTiki;
 import com.proyecto.holaeats.FragmentsPlatos.FragmentTikiFuertes;
 import com.proyecto.holaeats.FragmentsPlatos.FragmentTikiHouse;
@@ -36,7 +41,29 @@ public class ActivityMainPlatos extends AppCompatActivity {
 
         //Reemplazar un fragmen por otro
         getSupportFragmentManager().beginTransaction().add(R.id.fragmentprincipal, fentradas).commit();
+
+        BottomNavigationView navigation = findViewById(R.id.bottom_navigation);
+        navigation.setSelectedItemId(R.id.home);
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
+    private final BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
+        @Override
+        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+            switch (item.getItemId()){
+
+                case R.id.home:
+                    return true;
+                case R.id.history:
+                    startActivity(new Intent(getApplicationContext()
+                            ,HistorialPedidosActivity.class));
+                    overridePendingTransition(0,0);
+                    return true;
+
+
+            }
+            return false;
+        }
+    };
 
 
 

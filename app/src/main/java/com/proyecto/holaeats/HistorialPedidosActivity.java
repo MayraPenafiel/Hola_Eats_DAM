@@ -28,7 +28,7 @@ public class HistorialPedidosActivity extends AppCompatActivity {
 
                 case R.id.home:
                     startActivity(new Intent(getApplicationContext()
-                            ,ActivityHome.class));
+                            ,ActivityMainPlatos.class));
                     overridePendingTransition(0,0);
                     return true;
                 case R.id.history:

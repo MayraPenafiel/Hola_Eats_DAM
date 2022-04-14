@@ -1,6 +1,5 @@
 package com.proyecto.holaeats.FragmentsPlatos;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -102,11 +101,11 @@ public class FragmentEntradasTiki extends Fragment {
         getItemsSQL();
     }
     public void verProductos(){
-        listaProducto.add(new Producto("1","12","Cochas",R.drawable.ceviche_de_concha,"Marizco","Con camrones",23,10));
-        listaProducto.add(new Producto("1","12","Cochas",R.drawable.ceviche_de_concha,"Marizco","Con camrones",23,10));
-        listaProducto.add(new Producto("1","12","Cochas",R.drawable.ceviche_de_concha,"Marizco","Con camrones",23,10));
-        listaProducto.add(new Producto("1","12","Cochas",R.drawable.ceviche_de_concha,"Marizco","Con camrones",23,10));
-        listaProducto.add(new Producto("1","12","Cochas",R.drawable.ceviche_de_concha,"Marizco","Con camrones",23,10));
+        listaProducto.add(new Producto("1","12","Cochas",R.drawable.ceviche_de_concha,null,"Marizco","Con camrones",23,10));
+        listaProducto.add(new Producto("1","12","Cochas",R.drawable.ceviche_de_concha,null,"Marizco","Con camrones",23,10));
+        listaProducto.add(new Producto("1","12","Cochas",R.drawable.ceviche_de_concha,null,"Marizco","Con camrones",23,10));
+        listaProducto.add(new Producto("1","12","Cochas",R.drawable.ceviche_de_concha,null,"Marizco","Con camrones",23,10));
+        listaProducto.add(new Producto("1","12","Cochas",R.drawable.ceviche_de_concha,null,"Marizco","Con camrones",23,10));
     }
 
     private void getItemsSQL() {
