@@ -26,19 +26,13 @@ public class RegisterActivity extends AppCompatActivity {
             ,etRegisterUsername, etRegisterPassword;
     Button btnRegister;
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         initializeListeners();
         onClickListeners();
-
-
     }
-
 
     private void onClickListeners() {
         btnRegister.setOnClickListener(new View.OnClickListener() {
@@ -46,7 +40,6 @@ public class RegisterActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (validateUserName() && validatePassword()) {
                     Persona responseRegisterClass = new Persona();
-
                     //ResponseRegisterClass p = new   ResponseRegisterClass();
                     responseRegisterClass.setCedula(txtcedula.getText().toString());
                     responseRegisterClass.setNombre(txtnombre.getText().toString());
@@ -119,11 +112,6 @@ public class RegisterActivity extends AppCompatActivity {
         txtcorreo = findViewById(R.id.editTextTextEmail);
         txtdireccion = findViewById(R.id.editTextTextPersonDireccion);
         txttelefono = findViewById(R.id.editTextPhone);
-
-
-
-
-
     }
 
 
