@@ -17,8 +17,8 @@ public interface ServicePersona {
     //@GET("listar")
     //Call<List<Persona>> getPersonas();
 
-    @POST("personas")
-    Call<ResponseClass> personas(@Body Persona responseRegisterClass);
+    @POST("addUser")
+    Call<ResponseClass> addUser(@Body Persona responseRegisterClass);
 
 
     @POST("getUser")

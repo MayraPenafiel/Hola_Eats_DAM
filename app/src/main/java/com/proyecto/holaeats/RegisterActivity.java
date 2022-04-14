@@ -51,7 +51,7 @@ public class RegisterActivity extends AppCompatActivity {
                     responseRegisterClass.setUsername(etRegisterUsername.getText().toString());
 
                     ServicePersona apiService = Apis.getInstance().create(ServicePersona.class);
-                    apiService.personas(responseRegisterClass).enqueue(new Callback<ResponseClass>() {
+                    apiService.addUser(responseRegisterClass).enqueue(new Callback<ResponseClass>() {
                         @Override
                         public void onResponse(Call<ResponseClass> call, Response<ResponseClass> response) {
                             if (response.body() != null) {
