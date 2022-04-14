@@ -37,6 +37,10 @@
             android:name=".ActivityCuentayPerfl"
             android:exported="false" />
         <activity
+            android:name=".ActivityMainPlatos"
+            android:exported="false" />
+
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
