@@ -13,7 +13,6 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.proyecto.holaeats.FragmentsPlatos.FragmentEntradasTiki;
-import com.proyecto.holaeats.FragmentsPlatos.FragmentSopasTiki;
 import com.proyecto.holaeats.FragmentsPlatos.FragmentTikiFuertes;
 import com.proyecto.holaeats.FragmentsPlatos.FragmentTikiHouse;
 import com.proyecto.holaeats.FragmentsPlatos.FragmentTradicionales;

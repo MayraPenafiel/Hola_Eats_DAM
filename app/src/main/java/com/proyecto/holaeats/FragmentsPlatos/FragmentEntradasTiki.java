@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.proyecto.holaeats.R;
-import com.proyecto.holaeats.adaptadores.RecyclerAdaptadorPlatos;
 import com.proyecto.holaeats.api.Apis;
 import com.proyecto.holaeats.api.ServiceProducto;
 import com.proyecto.holaeats.modelo.Producto;
