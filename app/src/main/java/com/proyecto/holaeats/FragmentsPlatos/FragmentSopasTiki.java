@@ -128,7 +128,7 @@ public class FragmentSopasTiki extends Fragment implements RecyclerAdaptadorPlat
         startActivity(intent);*/
 
     }
-  
+
 
 
 

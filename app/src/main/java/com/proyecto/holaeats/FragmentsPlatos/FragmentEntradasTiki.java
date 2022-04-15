@@ -13,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.proyecto.holaeats.R;
+import com.proyecto.holaeats.adaptadores.RecyclerAdaptadorPlatos;
 import com.proyecto.holaeats.api.Apis;
 import com.proyecto.holaeats.api.ServiceProducto;
 import com.proyecto.holaeats.modelo.Producto;
@@ -25,7 +26,7 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 
 
-public class FragmentEntradasTiki extends Fragment {
+public class FragmentEntradasTiki extends Fragment implements RecyclerAdaptadorPlatos.RecyclerIntemClick {
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -116,7 +117,7 @@ public class FragmentEntradasTiki extends Fragment {
              LinearLayoutManager manager=new GridLayoutManager(getContext(),2);
              recyclerView.setLayoutManager(manager);
              listaProducto=response.body();
-             adaptadorPlatos=new RecyclerAdaptadorPlatos(getContext(),listaProducto);
+             adaptadorPlatos=new RecyclerAdaptadorPlatos(getContext(),listaProducto,FragmentEntradasTiki.this::itemClick);
              recyclerView.setAdapter(adaptadorPlatos);
 
          }
@@ -130,4 +131,8 @@ public class FragmentEntradasTiki extends Fragment {
     }
 
 
+    @Override
+    public void itemClick(Producto producto) {
+
+    }
 }
