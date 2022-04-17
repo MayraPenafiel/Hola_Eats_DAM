@@ -3,7 +3,7 @@ package com.proyecto.holaeats;
 import androidx.appcompat.app.AppCompatActivity;
 
 
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -55,10 +55,13 @@ public class RegisterActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(Call<ResponseClass> call, Response<ResponseClass> response) {
                             if (response.body() != null) {
-                                Toast.makeText(RegisterActivity.this, "Registration successful", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(RegisterActivity.this, "Registration con exito", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                                startActivity(intent);
+
                                 finish();
                             } else {
-                                Toast.makeText(RegisterActivity.this, "something went wrong! please try again", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(RegisterActivity.this, "algo salio mal! vuelva a intentarlo", Toast.LENGTH_SHORT).show();
                             }
                         }
 
@@ -77,11 +80,11 @@ public class RegisterActivity extends AppCompatActivity {
 
     private boolean validatePassword() {
         if (etRegisterPassword.getText().toString().length() < 6) {
-            etRegisterPassword.setError("password must be atleast 6 characters");
+            etRegisterPassword.setError("la contraseña debe tener mas de 6 caracteres");
             etRegisterPassword.requestFocus();
             return false;
         } else if (TextUtils.isEmpty(etRegisterPassword.getText().toString())) {
-            etRegisterPassword.setError("password cannot be empty");
+            etRegisterPassword.setError("contraseña no permititda");
             etRegisterPassword.requestFocus();
             return false;
         }
@@ -90,11 +93,11 @@ public class RegisterActivity extends AppCompatActivity {
 
     private boolean validateUserName() {
         if (TextUtils.isEmpty(etRegisterUsername.getText().toString())) {
-            etRegisterUsername.setError("username cannot be empty");
+            etRegisterUsername.setError("usuario no permitido");
             etRegisterUsername.requestFocus();
             return false;
         } else if (!etRegisterUsername.getText().toString().contains("@gmail.com")) {
-            etRegisterUsername.setError("email must contain @gmail.com");
+            etRegisterUsername.setError("email de contener @gmail.com");
             etRegisterUsername.requestFocus();
             return false;
         }
