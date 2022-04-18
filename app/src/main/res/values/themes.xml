@@ -16,7 +16,7 @@
 
     <style name="BottomNavigation">
         <item name="android:background">@color/white_navbar</item>
-        <item name="itemIconTint">@color/black</item>
+        <item name="itemIconTint">@color/yellow_icon</item>
         <item name="itemTextColor">@color/black</item>
 
     </style>
