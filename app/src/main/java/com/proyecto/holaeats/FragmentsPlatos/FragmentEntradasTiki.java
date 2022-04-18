@@ -97,34 +97,38 @@ public class FragmentEntradasTiki extends Fragment implements RecyclerAdaptadorP
 
     private void getItemsSQL()  {
         listaproducto=new ArrayList<>();
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.100.210:8080/api/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-        ServiceProducto json = retrofit.create(ServiceProducto.class);
-        //Call<List<Producto>> call = json.productos();
-        Call<List<Producto>> call =json.getProductos();
-        call.enqueue(new Callback<List<Producto>>() {
-            @Override
-            public void onResponse(Call<List<Producto>> call, Response<List<Producto>> response) {
-                List<Producto> post = response.body();
-                for (Producto producto : post) {
-                    producto.setNombre(producto.getNombre());
-                    producto.setFoto(producto.getFoto());
-                    System.out.println(producto.getNombre()+" sdfdsdfsfdsfsd");
-                    listaproducto.add(producto);
+        Producto p =new Producto();
+        if(p.getCategoria()=="Tiki House") {
+
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl("http://192.168.100.210:8080/api/")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+            ServiceProducto json = retrofit.create(ServiceProducto.class);
+            //Call<List<Producto>> call = json.productos();
+            Call<List<Producto>> call = json.getProductos();
+            call.enqueue(new Callback<List<Producto>>() {
+                @Override
+                public void onResponse(Call<List<Producto>> call, Response<List<Producto>> response) {
+                    List<Producto> post = response.body();
+                    for (Producto producto : post) {
+                        producto.setNombre(producto.getNombre());
+                        producto.setFoto(producto.getFoto());
+                        System.out.println(producto.getNombre() + " sdfdsdfsfdsfsd");
+                        listaproducto.add(producto);
+                    }
+                    System.out.println(listaproducto.size() + " iiiiiiiiiiiiiiiiiiiiiddddddd");
+                    adaptadorPlatos = new RecyclerAdaptadorPlatos(getContext(), listaproducto, FragmentEntradasTiki.this);
+                    recyclerView.setAdapter(adaptadorPlatos);
+
                 }
-                System.out.println(listaproducto.size()+ " iiiiiiiiiiiiiiiiiiiiiddddddd");
-                adaptadorPlatos=new RecyclerAdaptadorPlatos(getContext(),listaproducto,FragmentEntradasTiki.this);
-                recyclerView.setAdapter(adaptadorPlatos);
 
-            }
+                @Override
+                public void onFailure(Call<List<Producto>> call, Throwable t) {
 
-            @Override
-            public void onFailure(Call<List<Producto>> call, Throwable t) {
-
-            }
-        });
+                }
+            });
+        }
 
     }
 
