@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+
 import com.proyecto.holaeats.R;
 import com.proyecto.holaeats.modelo.Producto;
 
@@ -24,7 +25,7 @@ public class RecyclerAdaptadorPlatos extends RecyclerView.Adapter<RecyclerAdapta
     Context context;
     List<Producto> listaproducto;
 
-
+    RecyclerView listPlatos;
     RecyclerIntemClick intemClick;
     private View.OnClickListener listener;
 
@@ -35,6 +36,8 @@ public class RecyclerAdaptadorPlatos extends RecyclerView.Adapter<RecyclerAdapta
 
         this.listaproducto = listaproducto;
         this.intemClick=intemClick;
+
+
         //System.out.println(listaproducto.size()+"Productos Mostrando");
        // this.listPlatos=listPlatos;
        // this.originallistaproducto = new ArrayList<>();
@@ -69,9 +72,13 @@ public class RecyclerAdaptadorPlatos extends RecyclerView.Adapter<RecyclerAdapta
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView")int position) {
         final Producto item=listaproducto.get(position);
-        holder.txtnombreplato.setText(item.getNombre_producto());
-        System.out.println(listaproducto.get(position).getNombre_producto()+"NOMBRESSSSSSSSSSSSSSSSS");
-       // holder.fotoplato.setImageResource(item.getFoto_producto());
+        holder.txtnombreplato.setText(item.getNombre());
+
+
+        System.out.println(listaproducto.get(position).getNombre()+"  NOMBRESSSSSSSSSSSSSSSSS");
+
+       // Picasso.get().load(item.getFoto()).into(holder.fotoplato);
+
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -107,7 +114,7 @@ public class RecyclerAdaptadorPlatos extends RecyclerView.Adapter<RecyclerAdapta
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             txtnombreplato=itemView.findViewById(R.id.menunombre_plato1);
-            //fotoplato=itemView.findViewById(R.id.opcionimagenPlato1);
+            fotoplato=itemView.findViewById(R.id.opcionimagenPlato1);
 
         }
 

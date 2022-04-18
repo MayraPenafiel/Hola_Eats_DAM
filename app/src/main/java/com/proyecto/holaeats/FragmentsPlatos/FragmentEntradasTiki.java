@@ -14,9 +14,9 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.proyecto.holaeats.ActividadDetallePlato;
 import com.proyecto.holaeats.R;
 import com.proyecto.holaeats.adaptadores.RecyclerAdaptadorPlatos;
-import com.proyecto.holaeats.api.Apis;
 import com.proyecto.holaeats.api.ServiceProducto;
 import com.proyecto.holaeats.modelo.Producto;
 
@@ -40,14 +40,11 @@ public class FragmentEntradasTiki extends Fragment implements RecyclerAdaptadorP
     private String mParam2;
     //Variables********************************
 
-   List<Producto> listaProducto ;
-   // ArrayList<Producto> productoLista;
-   ProgressDialog progress;
-
+   List<Producto> listaproducto ;
    RecyclerAdaptadorPlatos adaptadorPlatos;
     RecyclerView recyclerView;
 
-    Activity actividad;
+
 
 
 
@@ -82,90 +79,64 @@ public class FragmentEntradasTiki extends Fragment implements RecyclerAdaptadorP
 
         //recyclerProductos=(RecyclerView)vista.findViewById(R.id.RecyclerIdPlato);
         recyclerView=vista.findViewById(R.id.RecyclerIdPlato);
-       // getPosts();
-        listaProducto =new ArrayList<>();
-        verProductos();
+
+        getItemsSQL();
         LinearLayoutManager manager=new GridLayoutManager(getContext(),2);
         recyclerView.setLayoutManager(manager);
 
-        adaptadorPlatos=new RecyclerAdaptadorPlatos(getContext(),listaProducto,this);
-        recyclerView.setAdapter(adaptadorPlatos);
+       // adaptadorPlatos=new RecyclerAdaptadorPlatos(getContext(),listaproducto,this);
+      //  recyclerView.setAdapter(adaptadorPlatos);
 
         return vista;
 
     }
-    private  void initValues(){
 
-        //LinearLayoutManager manager=new GridLayoutManager(getContext(),2);
-        //recyclerView.setLayoutManager(manager);
-        //getItemsSQL();
-    }
-    public void verProductos(){
-        listaProducto.add(new Producto("1","12","Cochas",R.drawable.ceviche_de_concha,null,"Marizco","Con camrones",23,10));
-        listaProducto.add(new Producto("1","12","Cochas",R.drawable.ceviche_de_concha,null,"Marizco","Con camrones",23,10));
-        listaProducto.add(new Producto("1","12","Cochas",R.drawable.ceviche_de_concha,null,"Marizco","Con camrones",23,10));
-        listaProducto.add(new Producto("1","12","Cochas",R.drawable.ceviche_de_concha,null,"Marizco","Con camrones",23,10));
-        listaProducto.add(new Producto("1","12","Cochas",R.drawable.ceviche_de_concha,null,"Marizco","Con camrones",23,10));
-    }
 
-   private void getPosts(){
 
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.100.210:8080/api/")
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
 
-        ServiceProducto service =retrofit.create(ServiceProducto.class);
-       Call<List<Producto>> call =service.getProductos();
-        call.enqueue(new Callback<List<Producto>>() {
-            @Override
-            public void onResponse(Call<List<Producto>> call, Response<List<Producto>> response) {
 
-                List<Producto> post=response.body();
+    private void getItemsSQL()  {
+        listaproducto=new ArrayList<>();
+        Producto p =new Producto();
+        if(p.getCategoria()=="Tiki House") {
 
-                for (Producto m: post){
-                    String content="";
-                    Producto p=new Producto();
-                    p.setNombre_producto(m.getNombre_producto());
-                    System.out.println(m.getNombre_producto()+"VERRR LISTAAAAAAAAAAAAAAAAAAA");
-
-                    listaProducto.add(p);
+            Retrofit retrofit = new Retrofit.Builder()
+                    .baseUrl("http://192.168.100.210:8080/api/")
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .build();
+            ServiceProducto json = retrofit.create(ServiceProducto.class);
+            //Call<List<Producto>> call = json.productos();
+            Call<List<Producto>> call = json.getProductos();
+            call.enqueue(new Callback<List<Producto>>() {
+                @Override
+                public void onResponse(Call<List<Producto>> call, Response<List<Producto>> response) {
+                    List<Producto> post = response.body();
+                    for (Producto producto : post) {
+                        producto.setNombre(producto.getNombre());
+                        producto.setFoto(producto.getFoto());
+                        System.out.println(producto.getNombre() + " sdfdsdfsfdsfsd");
+                        listaproducto.add(producto);
+                    }
+                    System.out.println(listaproducto.size() + " iiiiiiiiiiiiiiiiiiiiiddddddd");
+                    adaptadorPlatos = new RecyclerAdaptadorPlatos(getContext(), listaproducto, FragmentEntradasTiki.this);
+                    recyclerView.setAdapter(adaptadorPlatos);
 
                 }
 
-            }
+                @Override
+                public void onFailure(Call<List<Producto>> call, Throwable t) {
 
-            @Override
-            public void onFailure(Call<List<Producto>> call, Throwable t) {
-
-            }
-        });
-
+                }
+            });
+        }
 
     }
-    private void getItemsSQL() {
-        ServiceProducto service = Apis.getInstance().create(ServiceProducto.class);
-        Call<List<Producto>> call =service.getProductos();
-        call.enqueue(new Callback<List<Producto>>() {
-            @Override
-            public void onResponse(Call<List<Producto>> call, Response<List<Producto>> response) {
-
-                listaProducto=response.body();
-                //adaptadorPlatos=new RecyclerAdaptadorPlatos(getContext(),listaProducto, this);
-                recyclerView.setAdapter(adaptadorPlatos);
-            }
-
-            @Override
-            public void onFailure(Call<List<Producto>> call, Throwable t) {
-
-            }
-        });
-    }
-
 
 
     @Override
     public void itemClick(Producto producto) {
-
+        Intent intent= new Intent(getContext() , ActividadDetallePlato.class);
+        intent.putExtra("itemDetalle",producto); //Cualquier n ombre en put extra
+        startActivity(intent);
     }
 }

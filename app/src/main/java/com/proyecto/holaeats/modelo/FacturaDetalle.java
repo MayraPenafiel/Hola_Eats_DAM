@@ -3,50 +3,58 @@ package com.proyecto.holaeats.modelo;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class FacturaDetalle implements Serializable {
+    private Long idDetalle;
 
-    //Atributos
-    @SerializedName("detalle_id")
-    private Long detalleId;
+    private String cantidad;
+    private String precio;
 
-    @SerializedName("description")
-    private String description;
+    private Producto producto;
 
-    @SerializedName("subtotal")
-    private Double subtotal;
-
-    //Metodos getter y setter
-    public Long getDetalleId() {
-        return detalleId;
-    }
-
-    public void setDetalleId(Long detalleId) {
-        this.detalleId = detalleId;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Double getSubtotal() {
-        return subtotal;
-    }
-
-    public void setSubtotal(Double subtotal) {
-        this.subtotal = subtotal;
-    }
 
     public FacturaDetalle() {
+        super();
     }
 
-    public FacturaDetalle(Long detalleId, String description, Double subtotal) {
-        this.detalleId = detalleId;
-        this.description = description;
-        this.subtotal = subtotal;
+    public FacturaDetalle(String tipoPago, String estado) {
+        super();
+        this.cantidad = tipoPago;
+        this.precio = estado;
+
+
+    }
+
+    public Long getIdDetalle() {
+        return idDetalle;
+    }
+
+    public void setIdDetalle(Long idDetalle) {
+        this.idDetalle = idDetalle;
+    }
+
+    public String getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(String cantidad) {
+        this.cantidad = cantidad;
+    }
+
+    public String getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(String precio) {
+        this.precio = precio;
+    }
+
+    public Producto getProducto() {
+        return producto;
+    }
+
+    public void setProducto(Producto producto) {
+        this.producto = producto;
     }
 }

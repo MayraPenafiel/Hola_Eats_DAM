@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.proyecto.holaeats.ActividadDetallePlato;
 import com.proyecto.holaeats.R;
 import com.proyecto.holaeats.adaptadores.RecyclerAdaptadorPlatos;
 import com.proyecto.holaeats.api.ServiceProducto;
@@ -39,7 +40,7 @@ public class FragmentSopasTiki extends Fragment implements RecyclerAdaptadorPlat
     private String mParam2;
   //// ATRIBUTOSSSSSSSSSSSS
 
-    ArrayAdapter  arrayAdapter;
+
    List<Producto> listaproducto;
 
     RecyclerView recyclerView;
@@ -75,7 +76,7 @@ public class FragmentSopasTiki extends Fragment implements RecyclerAdaptadorPlat
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View vista=inflater.inflate(R.layout.fragment_entradas_tiki, container, false);
+        View vista=inflater.inflate(R.layout.fragment_sopas_tiki, container, false);
 
 
 
@@ -83,7 +84,7 @@ public class FragmentSopasTiki extends Fragment implements RecyclerAdaptadorPlat
 
         recyclerView=vista.findViewById(R.id.RecyclerIdPlato);
 
-        getItemsSQL();
+
 
         recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
         adaptadorPlatos=new RecyclerAdaptadorPlatos(getContext(),listaproducto,this  );
@@ -92,6 +93,7 @@ public class FragmentSopasTiki extends Fragment implements RecyclerAdaptadorPlat
         return vista;
 
     }
+
     private void getItemsSQL()  {
         listaproducto=new ArrayList<>();
         Retrofit retrofit = new Retrofit.Builder()
@@ -106,10 +108,14 @@ public class FragmentSopasTiki extends Fragment implements RecyclerAdaptadorPlat
             public void onResponse(Call<List<Producto>> call, Response<List<Producto>> response) {
                 List<Producto> post = response.body();
                 for (Producto producto : post) {
-                    producto.setNombre_producto(producto.getNombre_producto());
+                    producto.setNombre(producto.getNombre());
+                    producto.setFoto(producto.getFoto());
+                    System.out.println(producto.getNombre()+" sdfdsdfsfdsfsd");
                     listaproducto.add(producto);
                 }
                 System.out.println(listaproducto.size()+ " iiiiiiiiiiiiiiiiiiiiiddddddd");
+                adaptadorPlatos=new RecyclerAdaptadorPlatos(getContext(),listaproducto,FragmentSopasTiki.this);
+                recyclerView.setAdapter(adaptadorPlatos);
 
             }
 
@@ -121,11 +127,12 @@ public class FragmentSopasTiki extends Fragment implements RecyclerAdaptadorPlat
 
     }
 
+
     @Override
     public void itemClick(Producto producto) {
-        /*Intent intent= new Intent(getContext() , ActividadDetallePlato.class);
+        Intent intent= new Intent(getContext() , ActividadDetallePlato.class);
         intent.putExtra("itemDetalle",producto); //Cualquier n ombre en put extra
-        startActivity(intent);*/
+        startActivity(intent);
 
     }
 
