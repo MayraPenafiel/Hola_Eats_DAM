@@ -6,80 +6,55 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class FacturaDetalle implements Serializable {
+    private Long idDetalle;
 
-    private Long idFactura;
-    private Date fecha;
-    private Double total;
-    private String forma_pago;
-    private Persona persona;
-    private FacturaDetalle facturaDetalle;
+    private String cantidad;
+    private String precio;
 
+    private Producto producto;
 
 
-    public FacturaDetalle(Long idFactura, Date fecha, Double total, String forma_pago, Persona persona, FacturaDetalle facturaDetalle) {
-        this.idFactura = idFactura;
-        this.fecha = fecha;
-        this.total = total;
-        this.forma_pago = forma_pago;
-        this.persona = persona;
-        this.facturaDetalle = facturaDetalle;
-    }
     public FacturaDetalle() {
         super();
     }
-    public FacturaDetalle(Date fecha, Double total, Persona persona,FacturaDetalle detalle) {
+
+    public FacturaDetalle(String tipoPago, String estado) {
         super();
-        this.fecha = fecha;
-        this.total = total;
-        this.persona = persona;
-        this.facturaDetalle = detalle;
+        this.cantidad = tipoPago;
+        this.precio = estado;
+
+
     }
 
-    public Long getIdFactura() {
-        return idFactura;
+    public Long getIdDetalle() {
+        return idDetalle;
     }
 
-    public void setIdFactura(Long idFactura) {
-        this.idFactura = idFactura;
+    public void setIdDetalle(Long idDetalle) {
+        this.idDetalle = idDetalle;
     }
 
-    public Date getFecha() {
-        return fecha;
+    public String getCantidad() {
+        return cantidad;
     }
 
-    public void setFecha(Date fecha) {
-        this.fecha = fecha;
+    public void setCantidad(String cantidad) {
+        this.cantidad = cantidad;
     }
 
-    public Double getTotal() {
-        return total;
+    public String getPrecio() {
+        return precio;
     }
 
-    public void setTotal(Double total) {
-        this.total = total;
+    public void setPrecio(String precio) {
+        this.precio = precio;
     }
 
-    public String getForma_pago() {
-        return forma_pago;
+    public Producto getProducto() {
+        return producto;
     }
 
-    public void setForma_pago(String forma_pago) {
-        this.forma_pago = forma_pago;
-    }
-
-    public Persona getPersona() {
-        return persona;
-    }
-
-    public void setPersona(Persona persona) {
-        this.persona = persona;
-    }
-
-    public FacturaDetalle getFacturaDetalle() {
-        return facturaDetalle;
-    }
-
-    public void setFacturaDetalle(FacturaDetalle facturaDetalle) {
-        this.facturaDetalle = facturaDetalle;
+    public void setProducto(Producto producto) {
+        this.producto = producto;
     }
 }

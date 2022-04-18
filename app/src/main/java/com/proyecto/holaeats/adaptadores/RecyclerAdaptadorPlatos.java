@@ -73,6 +73,8 @@ public class RecyclerAdaptadorPlatos extends RecyclerView.Adapter<RecyclerAdapta
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView")int position) {
         final Producto item=listaproducto.get(position);
         holder.txtnombreplato.setText(item.getNombre());
+
+
         System.out.println(listaproducto.get(position).getNombre()+"  NOMBRESSSSSSSSSSSSSSSSS");
 
        // Picasso.get().load(item.getFoto()).into(holder.fotoplato);

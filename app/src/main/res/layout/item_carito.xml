@@ -51,13 +51,13 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/txtoreciocarrito"
+                android:id="@+id/txtprecioCarrito"
                 android:layout_width="100dp"
                 android:layout_height="25dp"
                 android:text="TextView" />
 
             <TextView
-                android:id="@+id/TxtCantidadCarrito"
+                android:id="@+id/txtCantidadCarrito"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="TextView" />
