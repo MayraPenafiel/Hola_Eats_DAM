@@ -1,21 +1,32 @@
 package com.proyecto.holaeats.FragmentsPlatos;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.RecyclerView;
 
 
+import com.proyecto.holaeats.ActividadDetallePlato;
 import com.proyecto.holaeats.R;
+import com.proyecto.holaeats.adaptadores.RecyclerAdaptadorPlatos;
+import com.proyecto.holaeats.api.ServiceProducto;
+import com.proyecto.holaeats.modelo.Producto;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link FragmentTradicionales#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class FragmentTradicionales extends Fragment {
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
+
+
+public class FragmentTradicionales extends Fragment implements RecyclerAdaptadorPlatos.RecyclerIntemClick {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -26,19 +37,15 @@ public class FragmentTradicionales extends Fragment {
     private String mParam1;
     private String mParam2;
 
+    List<Producto> listaproducto ;
+    RecyclerAdaptadorPlatos adaptadorPlatos;
+    RecyclerView recyclerView;
+
     public FragmentTradicionales() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FragmentTradicionales.
-     */
-    // TODO: Rename and change types and number of parameters
+
     public static FragmentTradicionales newInstance(String param1, String param2) {
         FragmentTradicionales fragment = new FragmentTradicionales();
         Bundle args = new Bundle();
@@ -62,5 +69,44 @@ public class FragmentTradicionales extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_tradicionales, container, false);
+    }
+    private void getItemsSQL()  {
+        listaproducto=new ArrayList<>();
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://192.168.100.210:8080/api/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        ServiceProducto json = retrofit.create(ServiceProducto.class);
+        //Call<List<Producto>> call = json.productos();
+        Call<List<Producto>> call =json.getProductos();
+        call.enqueue(new Callback<List<Producto>>() {
+            @Override
+            public void onResponse(Call<List<Producto>> call, Response<List<Producto>> response) {
+                List<Producto> post = response.body();
+                for (Producto producto : post) {
+                    producto.setNombre(producto.getNombre());
+                    producto.setFoto(producto.getFoto());
+                    System.out.println(producto.getNombre()+" sdfdsdfsfdsfsd");
+                    listaproducto.add(producto);
+                }
+                System.out.println(listaproducto.size()+ " iiiiiiiiiiiiiiiiiiiiiddddddd");
+                adaptadorPlatos=new RecyclerAdaptadorPlatos(getContext(),listaproducto,FragmentTradicionales.this);
+                recyclerView.setAdapter(adaptadorPlatos);
+
+            }
+
+            @Override
+            public void onFailure(Call<List<Producto>> call, Throwable t) {
+
+            }
+        });
+
+    }
+
+    @Override
+    public void itemClick(Producto producto) {
+        Intent intent= new Intent(getContext() , ActividadDetallePlato.class);
+        intent.putExtra("itemDetalle",producto); //Cualquier n ombre en put extra
+        startActivity(intent);
     }
 }
