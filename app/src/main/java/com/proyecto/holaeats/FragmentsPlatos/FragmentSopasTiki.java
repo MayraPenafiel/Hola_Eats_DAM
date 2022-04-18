@@ -1,17 +1,33 @@
 package com.proyecto.holaeats.FragmentsPlatos;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 
 import com.proyecto.holaeats.R;
-import com.proyecto.holaeats.R.layout;
+import com.proyecto.holaeats.adaptadores.RecyclerAdaptadorPlatos;
+import com.proyecto.holaeats.api.ServiceProducto;
+import com.proyecto.holaeats.modelo.Producto;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 
-public class FragmentSopasTiki extends Fragment {
+public class FragmentSopasTiki extends Fragment implements RecyclerAdaptadorPlatos.RecyclerIntemClick {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -21,19 +37,20 @@ public class FragmentSopasTiki extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+  //// ATRIBUTOSSSSSSSSSSSS
+
+    ArrayAdapter  arrayAdapter;
+   List<Producto> listaproducto;
+
+    RecyclerView recyclerView;
+    RecyclerAdaptadorPlatos   adaptadorPlatos;
+    public static String JSON_URL="http://192.168.100.210:8080/api/productos/1";
 
     public FragmentSopasTiki() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment FragmentSopasTiki.
-     */
+
     // TODO: Rename and change types and number of parameters
     public static FragmentSopasTiki newInstance(String param1, String param2) {
         FragmentSopasTiki fragment = new FragmentSopasTiki();
@@ -47,6 +64,7 @@ public class FragmentSopasTiki extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
@@ -57,6 +75,61 @@ public class FragmentSopasTiki extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(layout.fragment_sopas_tiki, container, false);
+        View vista=inflater.inflate(R.layout.fragment_entradas_tiki, container, false);
+
+
+
+
+
+        recyclerView=vista.findViewById(R.id.RecyclerIdPlato);
+
+        getItemsSQL();
+
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
+        adaptadorPlatos=new RecyclerAdaptadorPlatos(getContext(),listaproducto,this  );
+
+       recyclerView.setAdapter(adaptadorPlatos);
+        return vista;
+
     }
+    private void getItemsSQL()  {
+        listaproducto=new ArrayList<>();
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl("http://192.168.100.210:8080/api/")
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+        ServiceProducto json = retrofit.create(ServiceProducto.class);
+        //Call<List<Producto>> call = json.productos();
+        Call<List<Producto>> call =json.getProductos();
+        call.enqueue(new Callback<List<Producto>>() {
+            @Override
+            public void onResponse(Call<List<Producto>> call, Response<List<Producto>> response) {
+                List<Producto> post = response.body();
+                for (Producto producto : post) {
+                    producto.setNombre_producto(producto.getNombre_producto());
+                    listaproducto.add(producto);
+                }
+                System.out.println(listaproducto.size()+ " iiiiiiiiiiiiiiiiiiiiiddddddd");
+
+            }
+
+            @Override
+            public void onFailure(Call<List<Producto>> call, Throwable t) {
+
+            }
+        });
+
+    }
+
+    @Override
+    public void itemClick(Producto producto) {
+        /*Intent intent= new Intent(getContext() , ActividadDetallePlato.class);
+        intent.putExtra("itemDetalle",producto); //Cualquier n ombre en put extra
+        startActivity(intent);*/
+
+    }
+
+
+
+
 }
