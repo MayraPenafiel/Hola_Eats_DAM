@@ -31,9 +31,9 @@ public class AdaptadorCarrito extends RecyclerView.Adapter<AdaptadorCarrito.Carr
     List<FacturaEnc> listaCarrito;
     List<FacturaDetalle> listaDeatlle;
 
-    public AdaptadorCarrito(Context context, List<FacturaDetalle> listaDeatlle) {
+    public AdaptadorCarrito(Context context, List<CarritoCompras> carritolist) {
         this.context = context;
-        this.listaDeatlle= listaDeatlle;
+        this.carritolist= carritolist;
     }
 
     @NonNull
@@ -56,7 +56,7 @@ public class AdaptadorCarrito extends RecyclerView.Adapter<AdaptadorCarrito.Carr
                 .error(R.mipmap.ic_launcher)
                 .into(holder.fotoplato);
 
-        System.out.println(listaCarrito.get(position).getIdFactura()+"  NOMBRESSSSSSSSSSSSSSSSS");
+        //System.out.println(listaCarrito.get(position).getIdFactura()+"  NOMBRESSSSSSSSSSSSSSSSS");
 
     }
 

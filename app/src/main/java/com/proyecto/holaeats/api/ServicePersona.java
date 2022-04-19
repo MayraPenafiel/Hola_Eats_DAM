@@ -21,7 +21,7 @@ public interface ServicePersona {
     Call<ResponseClass> addUser(@Body Persona responseRegisterClass);
 
 
-    @POST("personas")
+    @POST("getUser")
     Call<ResponseClass> getUser(@Body Persona responseRegisterClass);
 }
 

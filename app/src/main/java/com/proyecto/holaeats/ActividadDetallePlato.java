@@ -41,7 +41,7 @@ public class ActividadDetallePlato extends AppCompatActivity {
         editCantidad=findViewById(R.id.editTextCantidad);
         btnañadir=findViewById(R.id.botonAñadirCarrito);
         iniciarActividad();
-        añadir();
+        //añadir();
 
 
 

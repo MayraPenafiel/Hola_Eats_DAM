@@ -83,7 +83,7 @@ public class FragmentTikiHouse extends Fragment implements RecyclerAdaptadorPlat
                 .build();
         ServiceProducto json = retrofit.create(ServiceProducto.class);
         //Call<List<Producto>> call = json.productos();
-        Call<List<Producto>> call =json.getProductos();
+        Call<List<Producto>> call =json.productos();
         call.enqueue(new Callback<List<Producto>>() {
             @Override
             public void onResponse(Call<List<Producto>> call, Response<List<Producto>> response) {
