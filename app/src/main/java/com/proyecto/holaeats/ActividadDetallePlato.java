@@ -56,6 +56,9 @@ public class ActividadDetallePlato extends AppCompatActivity {
         txtnombre.setText(producto.getNombre());
         txtdescripcion.setText(producto.getDescripcion());
 
+        //Double.valueOf(txtprecio.setText(producto.getPrecio().toString().doubleValue());
+        //fat=Double.valueOf(f).doubleValue();
+
 
 
     }
@@ -78,7 +81,6 @@ public class ActividadDetallePlato extends AppCompatActivity {
 
                 SQLITEBase base= new SQLITEBase(ActividadDetallePlato.this);
 
-                //String id= idCliente.getText().toString();
 
 
                 boolean bandera= base.CarritoPedidos(nombre,  precio, cantidad,imagen);
