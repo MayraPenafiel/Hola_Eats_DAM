@@ -1,5 +1,7 @@
 package com.proyecto.holaeats;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -11,6 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.proyecto.holaeats.adaptadores.AdaptadorCarrito;
+import com.proyecto.holaeats.api.SQLITEBase;
+import com.proyecto.holaeats.api.Utilidades;
 import com.proyecto.holaeats.modelo.CarritoCompras;
 import com.proyecto.holaeats.modelo.FacturaEnc;
 import com.proyecto.holaeats.modelo.Producto;
@@ -21,10 +25,10 @@ import java.util.List;
 
 
 public class ActivityCarrito extends AppCompatActivity {
-    List<FacturaEnc> listaproducto ;
+     SQLITEBase sqliteBase;
    AdaptadorCarrito adaptadorCarrito;
     RecyclerView recyclerView;
-    List<CarritoCompras> carritoCompras ;
+   ArrayList<CarritoCompras> carritoCompras ;
     TextView txtcantidad ,txtnombre;
     ImageView carritoimagen;
     @Override
@@ -36,15 +40,37 @@ public class ActivityCarrito extends AppCompatActivity {
         carritoimagen=findViewById(R.id.imagenCarrito);
         recyclerView=findViewById(R.id.itemsCarrito);
 
-        carritoCompras= new ArrayList<>();
+
         //carritoCompras.add(CarritoCompras("","",null,null,null));
-        adaptadorCarrito= new AdaptadorCarrito(this,carritoCompras);
-        recyclerView.setAdapter(adaptadorCarrito);
+        sqliteBase=new SQLITEBase(getApplicationContext(),"carrito_base",null,2);
+        carritoCompras=new ArrayList<>();
         LinearLayoutManager manager=new LinearLayoutManager(this,RecyclerView.VERTICAL,false);
         recyclerView.setLayoutManager(manager);
+         traerdatos();
+        adaptadorCarrito= new AdaptadorCarrito(this,carritoCompras);
+        recyclerView.setAdapter(adaptadorCarrito);
 
 
 
     }
+    public void traerdatos(){
+        SQLiteDatabase db =sqliteBase.getReadableDatabase();
+        CarritoCompras compras=null;
+        // listaUsuarios=new ArrayList<Usuario>();
+        //select * from usuarios
+        Cursor cursor=db.rawQuery("SELECT * FROM "+Utilidades.TABLA_CARRITO,null);
+
+        while (cursor.moveToNext()){
+            CarritoCompras c =new CarritoCompras();
+            c.setNombre(cursor.getString(0));
+            c.setPrecio(cursor.getDouble(1));
+            c.setCantidad(cursor.getInt(2));
+            c.setImagen(cursor.getString(3));
+            carritoCompras.add(c);
+
+        }
+
+    }
+
 
 }

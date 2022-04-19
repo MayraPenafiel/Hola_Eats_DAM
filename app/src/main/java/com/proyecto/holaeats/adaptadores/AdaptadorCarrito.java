@@ -20,6 +20,7 @@ import com.proyecto.holaeats.modelo.Producto;
 import com.squareup.picasso.Picasso;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -27,11 +28,11 @@ public class AdaptadorCarrito extends RecyclerView.Adapter<AdaptadorCarrito.Carr
 
 
     Context context;
-    List<CarritoCompras> carritolist;
-    List<FacturaEnc> listaCarrito;
+    ArrayList<CarritoCompras> carritolist;
+
     List<FacturaDetalle> listaDeatlle;
 
-    public AdaptadorCarrito(Context context, List<CarritoCompras> carritolist) {
+    public AdaptadorCarrito(Context context, ArrayList<CarritoCompras> carritolist) {
         this.context = context;
         this.carritolist= carritolist;
     }
@@ -56,6 +57,7 @@ public class AdaptadorCarrito extends RecyclerView.Adapter<AdaptadorCarrito.Carr
                 .error(R.mipmap.ic_launcher)
                 .into(holder.fotoplato);
 
+
         //System.out.println(listaCarrito.get(position).getIdFactura()+"  NOMBRESSSSSSSSSSSSSSSSS");
 
     }
@@ -64,7 +66,7 @@ public class AdaptadorCarrito extends RecyclerView.Adapter<AdaptadorCarrito.Carr
     @Override
     public int getItemCount() {
 
-        return listaCarrito.size() ;
+        return carritolist.size() ;
     }
 
     public class CarritoHolder extends RecyclerView.ViewHolder {

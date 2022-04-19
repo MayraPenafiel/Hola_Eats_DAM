@@ -13,6 +13,9 @@ public class CarritoCompras {
         this.imagen=imagen;
     }
 
+    public CarritoCompras() {
+    }
+
     public String getImagen() {
         return imagen;
     }
