@@ -78,15 +78,11 @@ public class FragmentEntradasTiki extends Fragment implements RecyclerAdaptadorP
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         ViewGroup vista=(ViewGroup) inflater.inflate(R.layout.fragment_entradas_tiki,container,false);
-        
-        recyclerView=vista.findViewById(R.id.RecyclerIdPlato);
 
+        recyclerView=vista.findViewById(R.id.RecyclerIdPlato);
         getItemsSQL();
         LinearLayoutManager manager=new GridLayoutManager(getContext(),2);
         recyclerView.setLayoutManager(manager);
-
-
-
         return vista;
 
     }
@@ -94,7 +90,6 @@ public class FragmentEntradasTiki extends Fragment implements RecyclerAdaptadorP
     //// METODO RETROFIT********************************+
 
     private void getItemsSQL()  {
-
 
             listaproducto = new ArrayList<>();
             Retrofit retrofit = new Retrofit.Builder()
