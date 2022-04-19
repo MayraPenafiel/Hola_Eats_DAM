@@ -5,16 +5,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-import com.proyecto.holaeats.FragmentsPlatos.FragmentEntradasTiki;
 import com.proyecto.holaeats.adaptadores.AdaptadorCarrito;
-import com.proyecto.holaeats.adaptadores.RecyclerAdaptadorPlatos;
+import com.proyecto.holaeats.modelo.CarritoCompras;
 import com.proyecto.holaeats.modelo.FacturaEnc;
 import com.proyecto.holaeats.modelo.Producto;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -22,31 +24,27 @@ public class ActivityCarrito extends AppCompatActivity {
     List<FacturaEnc> listaproducto ;
    AdaptadorCarrito adaptadorCarrito;
     RecyclerView recyclerView;
-    Producto producto ;
+    List<CarritoCompras> carritoCompras ;
     TextView txtcantidad ,txtnombre;
     ImageView carritoimagen;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_carrito_pedidos);
-        txtnombre=findViewById(R.id.textCarritoPlato);
-        txtcantidad=findViewById(R.id.textCantidadCarrito);
+        txtnombre=findViewById(R.id.txtcarritonombreplato);
+        txtcantidad=findViewById(R.id.txtprecioCarrito);
         carritoimagen=findViewById(R.id.imagenCarrito);
-        traerDatos();
+        recyclerView=findViewById(R.id.itemsCarrito);
 
-        adaptadorCarrito = new AdaptadorCarrito(this, listaproducto);
+        carritoCompras= new ArrayList<>();
+        //carritoCompras.add(CarritoCompras("","",null,null,null));
+        adaptadorCarrito= new AdaptadorCarrito(this,carritoCompras);
         recyclerView.setAdapter(adaptadorCarrito);
+        LinearLayoutManager manager=new LinearLayoutManager(this,RecyclerView.VERTICAL,false);
+        recyclerView.setLayoutManager(manager);
 
 
 
     }
-    public void traerDatos(){
-        producto= (Producto) getIntent().getExtras().getSerializable("datos");
-        Picasso.get()
-                .load(producto.getFoto())
-                .error(R.mipmap.ic_launcher)
-                .into(carritoimagen);
-        txtnombre.setText(producto.getNombre());
 
-    }
 }

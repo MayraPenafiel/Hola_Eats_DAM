@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 
@@ -85,11 +86,11 @@ public class FragmentSopasTiki extends Fragment implements RecyclerAdaptadorPlat
         recyclerView=vista.findViewById(R.id.RecyclerIdPlato);
 
 
+        getItemsSQL();
+        LinearLayoutManager manager=new GridLayoutManager(getContext(),2);
+        recyclerView.setLayoutManager(manager);
 
-        recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
-        adaptadorPlatos=new RecyclerAdaptadorPlatos(getContext(),listaproducto,this  );
 
-       recyclerView.setAdapter(adaptadorPlatos);
         return vista;
 
     }
@@ -102,7 +103,7 @@ public class FragmentSopasTiki extends Fragment implements RecyclerAdaptadorPlat
                 .build();
         ServiceProducto json = retrofit.create(ServiceProducto.class);
         //Call<List<Producto>> call = json.productos();
-        Call<List<Producto>> call =json.getProductos();
+        Call<List<Producto>> call =json.productos();
         call.enqueue(new Callback<List<Producto>>() {
             @Override
             public void onResponse(Call<List<Producto>> call, Response<List<Producto>> response) {

@@ -73,16 +73,13 @@ public class RecyclerAdaptadorPlatos extends RecyclerView.Adapter<RecyclerAdapta
     public void onBindViewHolder(@NonNull ViewHolder holder, @SuppressLint("RecyclerView")int position) {
         final Producto item=listaproducto.get(position);
         holder.txtnombreplato.setText(item.getNombre());
-
-
         System.out.println(listaproducto.get(position).getNombre()+"  NOMBRESSSSSSSSSSSSSSSSS");
 
-       // Picasso.get().load(item.getFoto()).into(holder.fotoplato);
+
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-               intemClick.itemClick(item);
+            public void onClick(View view) {intemClick.itemClick(item);
             }
         });
        /* holder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -114,7 +111,7 @@ public class RecyclerAdaptadorPlatos extends RecyclerView.Adapter<RecyclerAdapta
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             txtnombreplato=itemView.findViewById(R.id.menunombre_plato1);
-            fotoplato=itemView.findViewById(R.id.opcionimagenPlato1);
+            fotoplato=itemView.findViewById(R.id.imagenCarrito);
 
         }
 

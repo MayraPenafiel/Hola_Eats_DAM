@@ -31,10 +31,13 @@
         <entry key="..\:/Users/daysi/Documents/GitHub/Hola_Eats_DAM/app/src/main/res/layout/activity_carrito_pedidos.xml" value="0.22" />
         <entry key="..\:/Users/daysi/Documents/GitHub/Hola_Eats_DAM/app/src/main/res/layout/activity_detalle_plato.xml" value="0.1" />
         <entry key="..\:/Users/daysi/Documents/GitHub/Hola_Eats_DAM/app/src/main/res/layout/activity_informacion_pago.xml" value="0.1" />
+        <entry key="..\:/Users/daysi/Documents/GitHub/Hola_Eats_DAM/app/src/main/res/layout/activity_main_platos.xml" value="0.1859375" />
+        <entry key="..\:/Users/daysi/Documents/GitHub/Hola_Eats_DAM/app/src/main/res/layout/activity_register.xml" value="0.25" />
         <entry key="..\:/Users/daysi/Documents/GitHub/Hola_Eats_DAM/app/src/main/res/layout/fragment_entradas_tiki.xml" value="0.1" />
         <entry key="..\:/Users/daysi/Documents/GitHub/Hola_Eats_DAM/app/src/main/res/layout/fragment_sopas_tiki.xml" value="0.1" />
         <entry key="..\:/Users/daysi/Documents/GitHub/Hola_Eats_DAM/app/src/main/res/layout/fragment_tiki_house.xml" value="0.1" />
         <entry key="..\:/Users/daysi/Documents/GitHub/Hola_Eats_DAM/app/src/main/res/layout/fragment_tradicionales.xml" value="0.10371376811594203" />
+        <entry key="..\:/Users/daysi/Documents/GitHub/Hola_Eats_DAM/app/src/main/res/layout/grid_platos.xml" value="0.1" />
         <entry key="..\:/Users/daysi/Documents/GitHub/Hola_Eats_DAM/app/src/main/res/layout/item_carito.xml" value="0.18" />
       </map>
     </option>

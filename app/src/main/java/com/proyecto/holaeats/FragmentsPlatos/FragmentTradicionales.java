@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.proyecto.holaeats.ActividadDetallePlato;
+import com.proyecto.holaeats.ActivityMainPlatos;
 import com.proyecto.holaeats.R;
 import com.proyecto.holaeats.adaptadores.RecyclerAdaptadorPlatos;
 import com.proyecto.holaeats.api.ServiceProducto;
@@ -78,7 +79,7 @@ public class FragmentTradicionales extends Fragment implements RecyclerAdaptador
                 .build();
         ServiceProducto json = retrofit.create(ServiceProducto.class);
         //Call<List<Producto>> call = json.productos();
-        Call<List<Producto>> call =json.getProductos();
+        Call<List<Producto>> call =json.productos();
         call.enqueue(new Callback<List<Producto>>() {
             @Override
             public void onResponse(Call<List<Producto>> call, Response<List<Producto>> response) {
@@ -105,7 +106,7 @@ public class FragmentTradicionales extends Fragment implements RecyclerAdaptador
 
     @Override
     public void itemClick(Producto producto) {
-        Intent intent= new Intent(getContext() , ActividadDetallePlato.class);
+        Intent intent= new Intent(getContext(),ActividadDetallePlato.class);
         intent.putExtra("itemDetalle",producto); //Cualquier n ombre en put extra
         startActivity(intent);
     }
