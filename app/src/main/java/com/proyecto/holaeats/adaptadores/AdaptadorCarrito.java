@@ -13,8 +13,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 
 import com.proyecto.holaeats.R;
+import com.proyecto.holaeats.modelo.CarritoCompras;
 import com.proyecto.holaeats.modelo.FacturaDetalle;
 import com.proyecto.holaeats.modelo.FacturaEnc;
+import com.proyecto.holaeats.modelo.Producto;
+import com.squareup.picasso.Picasso;
 
 
 import java.util.List;
@@ -24,12 +27,13 @@ public class AdaptadorCarrito extends RecyclerView.Adapter<AdaptadorCarrito.Carr
 
 
     Context context;
+    List<CarritoCompras> carritolist;
     List<FacturaEnc> listaCarrito;
     List<FacturaDetalle> listaDeatlle;
 
-    public AdaptadorCarrito(Context context, List<FacturaEnc> listaCarrito) {
+    public AdaptadorCarrito(Context context, List<FacturaDetalle> listaDeatlle) {
         this.context = context;
-        this.listaCarrito = listaCarrito;
+        this.listaDeatlle= listaDeatlle;
     }
 
     @NonNull
@@ -42,8 +46,16 @@ public class AdaptadorCarrito extends RecyclerView.Adapter<AdaptadorCarrito.Carr
 
     @Override
     public void onBindViewHolder(@NonNull CarritoHolder holder,@SuppressLint("RecyclerView") int position) {
-        final FacturaEnc item=listaCarrito.get(position);
-      
+        Producto p=new Producto();
+        final CarritoCompras item=carritolist.get(position);
+        holder.txtnombreplato.setText(item.getNombre());
+        holder.txtprecio.setText("$"+String.valueOf(item.getPrecio()));
+        holder.txtcantidad.setText(String.valueOf(item.getCantidad()));
+        Picasso.get()
+                .load(item.getImagen())
+                .error(R.mipmap.ic_launcher)
+                .into(holder.fotoplato);
+
         System.out.println(listaCarrito.get(position).getIdFactura()+"  NOMBRESSSSSSSSSSSSSSSSS");
 
     }

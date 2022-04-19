@@ -56,7 +56,7 @@
         android:id="@+id/editTextTextPersonCedula"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="32dp"
         android:backgroundTint="#EDCB35"
         android:ems="10"
@@ -144,13 +144,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="44dp"
-        android:layout_marginEnd="312dp"
+        android:layout_marginEnd="315dp"
         android:text="@string/contraseniatxt"
-        android:textColor="#F8F6F6"
+        android:textColor="#F1EBEB"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.125"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/telefonotxt" />
+        app:layout_constraintTop_toBottomOf="@+id/direcciontxt" />
 
     <TextView
         android:id="@+id/confirmartxt"
@@ -178,6 +178,7 @@
         android:inputType="textPersonName"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/nombretxt"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonCedula"
         tools:ignore="SpeakableTextPresentCheck" />
@@ -234,13 +235,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="66dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
+        android:layout_marginBottom="5dp"
         android:backgroundTint="#EDCB35"
         android:ems="10"
         android:inputType="textPassword"
         android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnregistrarsesion"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/confirmartxt"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextContraseña"
         tools:ignore="SpeakableTextPresentCheck" />
@@ -261,35 +265,35 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonDireccion"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
+
     <EditText
         android:id="@+id/editTextTextContraseña"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="124dp"
+        android:layout_width="223dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+
         android:backgroundTint="#EDCB35"
-        android:ems="10"
-        android:inputType="textPassword"
+
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.531"
-        app:layout_constraintStart_toEndOf="@+id/contraseniatxt"
         app:layout_constraintTop_toBottomOf="@+id/editTextPhone"
-        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
     <Button
         android:id="@+id/btnregistrarsesion"
         android:layout_width="188dp"
         android:layout_height="55dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="32dp"
-        android:backgroundTint="#EDCB35"
 
+        android:layout_marginBottom="39dp"
+        android:backgroundTint="#EDCB35"
         android:text="@string/btn_registrarse"
         app:cornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.007"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextConfirmarContraseña" />
 
@@ -299,14 +303,16 @@
         android:layout_width="120dp"
         android:layout_height="50dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="32dp"
+        android:layout_marginBottom="39dp"
         android:text="@string/btncancelar"
         android:textColor="#F4F1F1"
         android:textStyle="bold"
         app:cornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.894"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextConfirmarContraseña"
         app:strokeColor="#EDCB35" />

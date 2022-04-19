@@ -34,7 +34,7 @@ public class ActivityCarrito extends AppCompatActivity {
         carritoimagen=findViewById(R.id.imagenCarrito);
         traerDatos();
 
-        adaptadorCarrito = new AdaptadorCarrito(this, listaproducto);
+        //adaptadorCarrito = new AdaptadorCarrito(this, listaproducto);
         recyclerView.setAdapter(adaptadorCarrito);
 
 
