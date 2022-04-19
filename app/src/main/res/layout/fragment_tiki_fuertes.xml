@@ -7,32 +7,12 @@
     android:background="#437297"
     tools:context=".FragmentsPlatos.FragmentTikiFuertes">
 
-    <LinearLayout
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/RecyclerIdPlato3"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+        android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/imagenPlato"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_centerInParent="true"
-            android:layout_gravity="center"
-            android:layout_marginTop="1dp"
-            android:src="@drawable/ceviche_mixto">
-
-        </ImageView>
-
-        <TextView
-            android:id="@+id/menunombre_plato1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/imagenPlato"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="center"
-            android:layout_marginTop="5dp"
-            android:text="Nombre Plato" />
-    </LinearLayout>
+    </androidx.recyclerview.widget.RecyclerView>
 
 
 </FrameLayout>
