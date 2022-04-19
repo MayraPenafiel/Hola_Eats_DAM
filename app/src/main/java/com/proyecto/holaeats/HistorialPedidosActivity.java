@@ -33,8 +33,10 @@ public class HistorialPedidosActivity extends AppCompatActivity {
                     return true;
                 case R.id.history:
                     return true;
-
-
+                case R.id.Cuenta:
+                    startActivity(new Intent(getApplicationContext(),ActivityCuentayPerfl.class));
+                    overridePendingTransition(0,0);
+                    return true;
             }
             return false;
         }
