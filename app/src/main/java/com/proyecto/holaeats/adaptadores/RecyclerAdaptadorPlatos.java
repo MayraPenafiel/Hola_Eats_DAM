@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.proyecto.holaeats.R;
 import com.proyecto.holaeats.modelo.Producto;
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -75,6 +76,7 @@ public class RecyclerAdaptadorPlatos extends RecyclerView.Adapter<RecyclerAdapta
         holder.txtnombreplato.setText(item.getNombre());
 
         System.out.println(listaproducto.get(position).getNombre()+"  NOMBRESSSSSSSSSSSSSSSSS");
+        Picasso.get().load(item.getFoto()).error(R.mipmap.ic_launcher).into(holder.fotoplato);
 
 
 
