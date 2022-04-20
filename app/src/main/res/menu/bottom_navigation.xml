@@ -7,11 +7,16 @@
 
     <item
         android:id="@+id/history"
-        android:icon="@android:drawable/ic_menu_recent_history"
+        android:icon="@drawable/ic_historial"
         android:title="Inicio"/>
     <item
         android:id="@+id/carrito"
-        android:icon="@android:drawable/ic_menu_recent_history"
+        android:icon="@drawable/ic_carrito"
+        android:title="Inicio"/>
+
+    <item
+        android:id="@+id/Cuenta"
+        android:icon="@drawable/ic_usuario"
         android:title="Inicio"/>
 
 </menu>

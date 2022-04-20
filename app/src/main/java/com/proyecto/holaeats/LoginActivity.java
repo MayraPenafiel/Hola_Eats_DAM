@@ -54,7 +54,7 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void onResponse(Call<ResponseClass> call, Response<ResponseClass> response) {
                             if (response.body() != null) {
-                                Toast.makeText(LoginActivity.this, "Iniciando secion", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(LoginActivity.this, "Iniciando sesión", Toast.LENGTH_SHORT).show();
                                 Intent intent = new Intent(LoginActivity.this, ActivityMainPlatos.class);
                                 intent.putExtra("username", response.body().getUsername());
                                 startActivity(intent);
@@ -94,6 +94,7 @@ public class LoginActivity extends AppCompatActivity {
     private boolean validateUsername() {
         if (TextUtils.isEmpty(etUsername.getText().toString())) {
             etUsername.setError("Nombre de usuario incorrecto");
+            System.out.println(etUsername+"USUARIOOOOOOOOO");
             etUsername.requestFocus();
             return false;
         }
@@ -103,6 +104,7 @@ public class LoginActivity extends AppCompatActivity {
     private boolean validatePassword() {
         if (TextUtils.isEmpty(etPassword.getText().toString())) {
             etPassword.setError("Contraseña incorrecta");
+            System.out.println(etPassword+"CONTRAAAAAAAAAAAAAAA");
             etPassword.requestFocus();
             return false;
         }
