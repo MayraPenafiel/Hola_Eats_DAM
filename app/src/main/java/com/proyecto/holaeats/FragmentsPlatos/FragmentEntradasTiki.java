@@ -41,12 +41,11 @@ public class FragmentEntradasTiki extends Fragment implements RecyclerAdaptadorP
 
    List<Producto> listaproducto ;
    // ArrayList<Producto> productoLista;
-   ProgressDialog progress;
+
 
    RecyclerAdaptadorPlatos adaptadorPlatos;
     RecyclerView recyclerView;
 
-    Activity actividad;
 
 
 
@@ -107,7 +106,8 @@ public class FragmentEntradasTiki extends Fragment implements RecyclerAdaptadorP
                         if(producto.getCategoria()=="Entradas Tiki") {
                             producto.setNombre(producto.getNombre());
                             producto.setFoto(producto.getFoto());
-                            System.out.println(producto.getNombre() + " sdfdsdfsfdsfsd");
+                            System.out.println(producto.getNombre() + " NOMBRESSSSSS");
+                            producto.setFoto(producto.getFoto());
 
                         }
                         listaproducto.add(producto);

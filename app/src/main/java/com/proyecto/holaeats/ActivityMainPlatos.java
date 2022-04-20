@@ -58,10 +58,13 @@ public class ActivityMainPlatos extends AppCompatActivity {
                             ,HistorialPedidosActivity.class));
                     overridePendingTransition(0,0);
                     return true;
-                case R.id.Cuenta:
-                    startActivity(new Intent(getApplicationContext(),ActivityCuentayPerfl.class));
+                case R.id.carrito:
+                    startActivity(new Intent(getApplicationContext()
+                            ,ActivityCarrito.class));
                     overridePendingTransition(0,0);
-                    return true;
+                    return  true;
+
+
 
 
             }

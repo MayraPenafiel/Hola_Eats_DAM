@@ -2,20 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/home"
-        android:icon="@drawable/ic_inicio"
+        android:icon="@android:drawable/ic_menu_gallery"
         android:title="Inicio"/>
 
     <item
         android:id="@+id/history"
-        android:icon="@drawable/ic_historial"
-        android:title="Historial"/>
+        android:icon="@android:drawable/ic_menu_recent_history"
+        android:title="Inicio"/>
     <item
-        android:id="@+id/Carrito"
-        android:icon="@drawable/ic_carrito"
-        android:title="Carrito"/>
-    <item
-        android:id="@+id/Cuenta"
-        android:icon="@drawable/ic_usuario"
-        android:title="Perfil"/>
+        android:id="@+id/carrito"
+        android:icon="@android:drawable/ic_menu_recent_history"
+        android:title="Inicio"/>
 
 </menu>

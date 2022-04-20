@@ -10,11 +10,12 @@
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_marginTop="5dp"
+        app:cardBackgroundColor="#ffffff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-      <ImageView
+        <ImageView
             android:id="@+id/imagenCarrito"
             android:layout_width="124dp"
             android:layout_height="127dp"
@@ -24,7 +25,7 @@
             android:layout_marginTop="4dp"
             android:layout_marginEnd="100dp"
             android:layout_marginBottom="4dp"
-            android:background="#435678"
+            android:background="#ffffff"
             android:src="@drawable/ceviche_mixto">
 
         </ImageView>
@@ -40,7 +41,8 @@
             android:layout_marginStart="100dp"
             android:layout_marginTop="75dp"
             android:layout_marginEnd="100dp"
-            android:text="Nombre Plato" />
+            android:text="Nombre Plato"
+            android:textColor="#000000" />
     </androidx.cardview.widget.CardView>
 
 

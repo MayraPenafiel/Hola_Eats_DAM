@@ -22,7 +22,7 @@ import java.util.List;
 public class ActividadDetallePlato extends AppCompatActivity {
    //// DETALEEEEEEEEEEEEEEEEEEEEEE
    private Producto producto;
-    String image;
+
     List<Producto> listaproducto;
     ImageView imagenVer;
     TextView txtnombre ,txtdescripcion,txtprecio, txtstock;
@@ -41,7 +41,7 @@ public class ActividadDetallePlato extends AppCompatActivity {
         editCantidad=findViewById(R.id.editTextCantidad);
         btnañadir=findViewById(R.id.botonAñadirCarrito);
         iniciarActividad();
-        //añadir();
+        añadir();
 
 
 
@@ -55,6 +55,8 @@ public class ActividadDetallePlato extends AppCompatActivity {
                 .into(imagenVer);
         txtnombre.setText(producto.getNombre());
         txtdescripcion.setText(producto.getDescripcion());
+        txtprecio.setText(String.valueOf(producto.getPrecio()));
+        txtstock.setText(String.valueOf(producto.getStock()));
 
         //Double.valueOf(txtprecio.setText(producto.getPrecio().toString().doubleValue());
         //fat=Double.valueOf(f).doubleValue();
@@ -63,34 +65,24 @@ public class ActividadDetallePlato extends AppCompatActivity {
 
     }
     public  void añadir(){
+        final SQLITEBase base = new SQLITEBase(this,"carrito_base",null,2);
 
         btnañadir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(ActividadDetallePlato.this, ActivityCarrito.class);
+                //base.CarritoPedidos(
+                       // txtnombre.getText().toString(),Integer.parseI,NULLnt(editCantidad.getText().toString()),Double.parseDouble(txtprecio.getText().toString()),imagenVer.toString());
 
-                String nombre= txtnombre.getText().toString();
+                String nombre = txtnombre.getText().toString();
+                int    cantidad = Integer.parseInt(editCantidad.getText().toString());
+                double precio = Double.parseDouble(txtprecio.getText().toString());
+                String foto = imagenVer.toString();
 
-                String precio= txtprecio.getText().toString().substring(1,txtprecio.getText().toString().length());
-                String cantidad= editCantidad.getText().toString();
-                String imagen= image;
-
-                i.putExtra("datos",txtnombre.getText().toString());
-                i.putExtra("dato1",editCantidad.getText().toString());
-                startActivity(i);
-
-                SQLITEBase base= new SQLITEBase(ActividadDetallePlato.this);
-
-
-
-                boolean bandera= base.CarritoPedidos(nombre,  precio, cantidad,imagen);
-
-                if (bandera!=false){
-
-                    Toast.makeText(ActividadDetallePlato.this, "Prodcuto añadido al carrito", Toast.LENGTH_LONG).show();
-                }else{
-                    Toast.makeText(ActividadDetallePlato.this, "El cliente con este id ya se encuentra registrado", Toast.LENGTH_LONG).show();
-
+                Boolean checkinsertdata = base.CarritoPedidos(nombre,precio,cantidad,foto);
+                if(checkinsertdata==true) {
+                    Toast.makeText(getApplicationContext(), "Nuevos Datos Ingresados", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(getApplicationContext(), "Datos no Ingresados", Toast.LENGTH_SHORT).show();
                 }
             }
         });
