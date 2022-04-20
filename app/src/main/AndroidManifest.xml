@@ -13,9 +13,6 @@
         android:theme="@style/Theme.HolaEats"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".ActivityHome"
-            android:exported="false" />
-        <activity
             android:name=".DetallePedidoActivity"
             android:exported="false" />
         <activity
