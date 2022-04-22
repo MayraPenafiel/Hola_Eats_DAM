@@ -43,6 +43,12 @@
             android:name=".ActivityCarrito"
             android:exported="false" />
         <activity
+            android:name=".ActivityConfrimarOrden"
+            android:exported="false" />
+        <activity
+            android:name=".ActivityInformacionPago"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
