@@ -49,6 +49,8 @@ public class AdaptadorCarrito extends RecyclerView.Adapter<AdaptadorCarrito.Carr
     public void onBindViewHolder(@NonNull CarritoHolder holder,@SuppressLint("RecyclerView") int position) {
         Producto p=new Producto();
         final CarritoCompras item=carritolist.get(position);
+        holder.txtidcarrito.setText(item.getId_carrito());
+        holder.txtidplato.setText(item.getId_producto());
         holder.txtnombreplato.setText(item.getNombre());
         holder.txtprecio.setText("$"+String.valueOf(item.getPrecio()));
         holder.txtcantidad.setText(String.valueOf(item.getCantidad()));
@@ -70,12 +72,14 @@ public class AdaptadorCarrito extends RecyclerView.Adapter<AdaptadorCarrito.Carr
     }
 
     public class CarritoHolder extends RecyclerView.ViewHolder {
-        TextView txtnombreplato,txtcantidad,txtprecio;
+        TextView txtnombreplato,txtcantidad,txtprecio,txtidcarrito,txtidplato;
         ImageView fotoplato;
 
         public CarritoHolder(@NonNull View itemView) {
 
             super(itemView);
+            txtidcarrito=itemView.findViewById(R.id.txtidcarrito);
+            txtidplato=itemView.findViewById(R.id.textidPlaqtoCarrito);
             txtnombreplato=itemView.findViewById(R.id.txtcarritonombreplato);
             txtcantidad=itemView.findViewById(R.id.txtCantidadCarrito);
             txtprecio=itemView.findViewById(R.id.txtprecioCarrito);

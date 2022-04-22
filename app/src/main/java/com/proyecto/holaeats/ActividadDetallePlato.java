@@ -40,6 +40,7 @@ public class ActividadDetallePlato extends AppCompatActivity {
         txtstock=findViewById(R.id.textdetalle_stock);
         editCantidad=findViewById(R.id.editTextCantidad);
         btnañadir=findViewById(R.id.botonAñadirCarrito);
+
         iniciarActividad();
         añadir();
 
@@ -65,13 +66,14 @@ public class ActividadDetallePlato extends AppCompatActivity {
 
     }
     public  void añadir(){
-        final SQLITEBase base = new SQLITEBase(this,"carrito_base",null,2);
+        final SQLITEBase base = new SQLITEBase(this,"carrito_base",null,3);
 
         btnañadir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 //base.CarritoPedidos(
                        // txtnombre.getText().toString(),Integer.parseI,NULLnt(editCantidad.getText().toString()),Double.parseDouble(txtprecio.getText().toString()),imagenVer.toString());
+
 
                 String nombre = txtnombre.getText().toString();
                 int    cantidad = Integer.parseInt(editCantidad.getText().toString());

@@ -97,19 +97,18 @@ public class FragmentEntradasTiki extends Fragment implements RecyclerAdaptadorP
                     .build();
             ServiceProducto json = retrofit.create(ServiceProducto.class);
             //Call<List<Producto>> call = json.productos();
-            Call<List<Producto>> call = json.productos();
+            Call<List<Producto>> call = json.getCartegoria();
             call.enqueue(new Callback<List<Producto>>() {
                 @Override
                 public void onResponse(Call<List<Producto>> call, Response<List<Producto>> response) {
                     List<Producto> post = response.body();
                     for (Producto producto : post) {
-                        if(producto.getCategoria()=="Entradas Tiki") {
+
                             producto.setNombre(producto.getNombre());
                             producto.setFoto(producto.getFoto());
                             System.out.println(producto.getNombre() + " NOMBRESSSSSS");
                             producto.setFoto(producto.getFoto());
 
-                        }
                         listaproducto.add(producto);
                     }
                     System.out.println(listaproducto.size() + " iiiiiiiiiiiiiiiiiiiiiddddddd");

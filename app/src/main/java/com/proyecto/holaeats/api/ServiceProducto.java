@@ -11,4 +11,6 @@ import retrofit2.http.GET;
 public interface ServiceProducto {
     @GET("productos")
     Call<List<Producto>>productos();
+    @GET("listarProducto?categoria=Entradas%20Tiki")
+    Call<List<Producto>>getCartegoria();
 }

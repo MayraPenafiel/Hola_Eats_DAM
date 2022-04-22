@@ -42,7 +42,7 @@ public class ActivityCarrito extends AppCompatActivity {
 
 
         //carritoCompras.add(CarritoCompras("","",null,null,null));
-        sqliteBase=new SQLITEBase(getApplicationContext(),"carrito_base",null,2);
+        sqliteBase=new SQLITEBase(getApplicationContext(),"carrito_base",null,3);
         carritoCompras=new ArrayList<>();
         LinearLayoutManager manager=new LinearLayoutManager(this,RecyclerView.VERTICAL,false);
         recyclerView.setLayoutManager(manager);
@@ -62,10 +62,10 @@ public class ActivityCarrito extends AppCompatActivity {
 
         while (cursor.moveToNext()){
             CarritoCompras c =new CarritoCompras();
-            c.setNombre(cursor.getString(0));
-            c.setPrecio(cursor.getDouble(1));
-            c.setCantidad(cursor.getInt(2));
-            c.setImagen(cursor.getString(3));
+            c.setNombre(cursor.getString(2));
+            c.setCantidad(cursor.getInt(3));
+            c.setPrecio(cursor.getDouble(4));
+            c.setImagen(cursor.getString(5));
             carritoCompras.add(c);
 
         }

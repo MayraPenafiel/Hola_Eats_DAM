@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="215dp">
+    android:layout_height="220dp">
 
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="209dp"
         android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -36,10 +36,25 @@
             </ImageView>
 
             <TextView
-                android:id="@+id/txtcarritonombreplato"
-                android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:id="@+id/txtidcarrito"
+                android:layout_width="29dp"
+                android:layout_height="8dp"
                 android:layout_marginStart="20dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/textidPlaqtoCarrito"
+                android:layout_width="25dp"
+                android:layout_height="10dp"
+                android:layout_marginStart="20dp"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/txtcarritonombreplato"
+                android:layout_width="175dp"
+                android:layout_height="30dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="10dp"
                 android:text="TextView"
                 android:textColor="#000000" />
 
