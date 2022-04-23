@@ -42,10 +42,10 @@ public class ActivityCarrito extends AppCompatActivity {
     Button botoncontinuar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setContentView(R.layout.activity_carrito_pedidos);
-        setTitle("Carrito de Compras");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_carrito_pedidos);
+        setTitle("Carrito de Compras");
+
         txtnombre=findViewById(R.id.txtcarritonombreplato);
         txtcantidad=findViewById(R.id.txtprecioCarrito);
         carritoimagen=findViewById(R.id.imagenCarrito);
@@ -62,6 +62,8 @@ public class ActivityCarrito extends AppCompatActivity {
         adaptadorCarrito= new AdaptadorCarrito(this,carritoCompras);
         recyclerView.setAdapter(adaptadorCarrito);
         enviardatos();
+
+        //Barra de navegación
         BottomNavigationView navigation = findViewById(R.id.bottom_navigation);
         navigation.setSelectedItemId(R.id.carrito);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
@@ -92,8 +94,6 @@ public class ActivityCarrito extends AppCompatActivity {
                     overridePendingTransition(0,0);
                     return true;
 
-
-
             }
             return false;
         }
@@ -118,7 +118,7 @@ public class ActivityCarrito extends AppCompatActivity {
         double total=0;
         for (int i = 0; i < carritoCompras.size(); i++) {
             total= ((carritoCompras.get(i).getPrecio())*carritoCompras.get(i).getCantidad()+total);
-            txtTotal.setText(String.valueOf(total));
+            txtTotal.setText(String.valueOf("$"+total));
             System.out.println(total+"Aqui total");
         }
 

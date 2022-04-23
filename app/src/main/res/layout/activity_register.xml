@@ -77,7 +77,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="315dp"
         android:text="@string/contraseniatxt"
         android:textColor="#F1EBEB"
@@ -124,14 +124,14 @@
         android:text="@string/telefonotxt"
         android:textColor="#F1EBEB"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/direcciontxt" />
 
     <EditText
         android:id="@+id/editTextTextPersonCedula"
-        android:layout_width="160dp"
-        android:layout_height="54dp"
+        android:layout_width="171dp"
+        android:layout_height="50dp"
         android:layout_marginEnd="32dp"
         android:backgroundTint="#EDCB35"
         android:ems="10"
@@ -157,12 +157,12 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/contraseniatxt"
-        app:layout_constraintVertical_bias="0.021" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/editTextTextPersonNombre"
-        android:layout_width="162dp"
-        android:layout_height="41dp"
+        android:layout_width="176dp"
+        android:layout_height="46dp"
         android:layout_marginStart="78dp"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="32dp"
@@ -171,15 +171,15 @@
         android:inputType="textPersonName"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.866"
         app:layout_constraintStart_toEndOf="@+id/nombretxt"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonCedula"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
         android:id="@+id/editTextTextPersonApellido"
-        android:layout_width="208dp"
-        android:layout_height="42dp"
+        android:layout_width="179dp"
+        android:layout_height="44dp"
         android:layout_marginStart="77dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="32dp"
@@ -188,15 +188,15 @@
         android:inputType="textPersonName"
         android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintHorizontal_bias="0.964"
         app:layout_constraintStart_toEndOf="@+id/apellidotxt"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonNombre"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
     <EditText
         android:id="@+id/editTextTextEmail"
-        android:layout_width="211dp"
-        android:layout_height="37dp"
+        android:layout_width="183dp"
+        android:layout_height="45dp"
         android:layout_marginTop="6dp"
         android:layout_marginEnd="32dp"
         android:backgroundTint="#EDCB35"
@@ -210,8 +210,8 @@
 
     <EditText
         android:id="@+id/editTextTextPersonDireccion"
-        android:layout_width="207dp"
-        android:layout_height="39dp"
+        android:layout_width="183dp"
+        android:layout_height="40dp"
         android:layout_marginStart="79dp"
         android:layout_marginTop="6dp"
         android:layout_marginEnd="32dp"
@@ -226,9 +226,8 @@
 
     <EditText
         android:id="@+id/editTextTextConfirmarContraseña"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="66dp"
+        android:layout_width="188dp"
+        android:layout_height="48dp"
         android:layout_marginTop="6dp"
         android:layout_marginEnd="32dp"
         android:backgroundTint="#EDCB35"
@@ -237,16 +236,16 @@
         android:minHeight="48dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/confirmartxt"
         app:layout_constraintTop_toBottomOf="@+id/editTextTextContraseña"
-        app:layout_constraintVertical_bias="0.008"
+        app:layout_constraintVertical_bias="0.111"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
         android:id="@+id/editTextPhone"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="186dp"
+        android:layout_height="42dp"
         android:layout_marginStart="176dp"
         android:layout_marginTop="6dp"
         android:layout_marginEnd="32dp"
@@ -262,8 +261,8 @@
 
     <EditText
         android:id="@+id/editTextTextContraseña"
-        android:layout_width="207dp"
-        android:layout_height="45dp"
+        android:layout_width="187dp"
+        android:layout_height="47dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="10dp"
 
@@ -272,17 +271,16 @@
         android:inputType="textPassword"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.718"
+        app:layout_constraintHorizontal_bias="0.704"
         app:layout_constraintStart_toEndOf="@+id/contraseniatxt"
         app:layout_constraintTop_toBottomOf="@+id/editTextPhone"
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
     <Button
         android:id="@+id/btnregistrarsesion"
-        android:layout_width="188dp"
+        android:layout_width="180dp"
         android:layout_height="55dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="10dp"
         android:layout_marginEnd="32dp"
 
         android:layout_marginBottom="39dp"
@@ -293,14 +291,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextConfirmarContraseña"
+        app:layout_constraintTop_toBottomOf="@+id/confirmartxt"
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/btncancelar"
         style="?attr/materialButtonOutlinedStyle"
-        android:layout_width="129dp"
-        android:layout_height="53dp"
+        android:layout_width="134dp"
+        android:layout_height="55dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="32dp"

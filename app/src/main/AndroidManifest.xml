@@ -34,6 +34,9 @@
             android:name=".ActivityCuentayPerfl"
             android:exported="false" />
         <activity
+            android:name=".ActivityPerfil"
+            android:exported="false" />
+        <activity
             android:name=".ActivityMainPlatos"
             android:exported="false" />
         <activity

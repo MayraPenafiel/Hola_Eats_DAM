@@ -64,10 +64,10 @@ public class ActivityMainPlatos extends AppCompatActivity {
                     overridePendingTransition(0,0);
                     return  true;
                 case  R.id.Cuenta:;
-                startActivity(new Intent(getApplicationContext(),
-                        ActivityPerfil.class));
-                overridePendingTransition(0,0);
-                return true;
+                     startActivity(new Intent(getApplicationContext()
+                             ,ActivityPerfil.class));
+                      overridePendingTransition(0,0);
+                     return true;
 
             }
             return false;

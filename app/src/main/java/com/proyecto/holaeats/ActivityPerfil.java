@@ -26,6 +26,9 @@ public class ActivityPerfil extends AppCompatActivity {
             switch (item.getItemId()){
 
                 case R.id.home:
+                    startActivity(new Intent(getApplicationContext()
+                            ,ActivityMainPlatos.class));
+                    overridePendingTransition(0,0);
                     return true;
                 case R.id.history:
                     startActivity(new Intent(getApplicationContext()
