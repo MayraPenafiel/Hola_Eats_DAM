@@ -25,7 +25,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class ActivityInformacionPago extends AppCompatActivity {
-    EditText numtarjeta,nombres,fecha,cvv;
+    /*EditText numtarjeta,nombres,fecha,cvv,txtcedula;
     Button continuarboton;
     ImageButton botonfecha;
     private  int dia,mes,year;
@@ -53,7 +53,7 @@ public class ActivityInformacionPago extends AppCompatActivity {
                     //ResponseRegisterClass p = new   ResponseRegisterClass();
                     responseRegisterClass.setCedula(txtcedula.getText().toString());
                     responseRegisterClass.setFecha(fecha.getText().toString());
-                    responseRegisterClass.setForma_pago(.getText().toString());
+                    responseRegisterClass.setForma_pago(cvv.getText().toString());
                     responseRegisterClass.setPersona(nombres.getText().toString());
                     responseRegisterClass.setDireccion(txtdireccion.getText().toString());
                     responseRegisterClass.setTelefono(txttelefono.getText().toString());
@@ -106,5 +106,5 @@ public class ActivityInformacionPago extends AppCompatActivity {
                 datePickerDialog.show();
             }
         });
-    }
+    }*/
 }

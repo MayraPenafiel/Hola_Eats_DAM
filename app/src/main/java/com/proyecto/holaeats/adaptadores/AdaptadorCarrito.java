@@ -37,6 +37,8 @@ public class AdaptadorCarrito extends RecyclerView.Adapter<AdaptadorCarrito.Carr
         this.carritolist= carritolist;
     }
 
+
+
     @NonNull
     @Override
     public CarritoHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -52,7 +54,7 @@ public class AdaptadorCarrito extends RecyclerView.Adapter<AdaptadorCarrito.Carr
         holder.txtidcarrito.setText(item.getId_carrito());
         holder.txtidplato.setText(item.getId_producto());
         holder.txtnombreplato.setText(item.getNombre());
-        holder.txtprecio.setText("$"+String.valueOf(item.getPrecio()));
+        holder.txtprecio.setText("$"+item.getPrecio());
         holder.txtcantidad.setText(String.valueOf(item.getCantidad()));
         Picasso.get()
                 .load(item.getImagen())

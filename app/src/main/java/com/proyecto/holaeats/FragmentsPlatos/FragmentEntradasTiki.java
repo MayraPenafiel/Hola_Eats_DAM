@@ -92,7 +92,7 @@ public class FragmentEntradasTiki extends Fragment implements RecyclerAdaptadorP
 
             listaproducto = new ArrayList<>();
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("http://192.168.100.210:8080/api/")
+                    .baseUrl("http://192.168.18.56:8080/api/")
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
             ServiceProducto json = retrofit.create(ServiceProducto.class);

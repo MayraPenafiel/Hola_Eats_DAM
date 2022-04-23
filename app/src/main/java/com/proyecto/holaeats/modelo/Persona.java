@@ -24,12 +24,11 @@ public class Persona implements Serializable{
     @SerializedName("telefono")
 
     private String telefono;
-    @SerializedName("direccion")
 
+    @SerializedName("direccion")
     private String direccion;
 
     @SerializedName("rol")
-
     private String rol= "Cliente";
 
 
