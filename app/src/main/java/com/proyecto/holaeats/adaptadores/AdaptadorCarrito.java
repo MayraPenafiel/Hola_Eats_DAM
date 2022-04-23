@@ -62,6 +62,7 @@ public class AdaptadorCarrito extends RecyclerView.Adapter<AdaptadorCarrito.Carr
                 .into(holder.fotoplato);
 
 
+
         //System.out.println(listaCarrito.get(position).getIdFactura()+"  NOMBRESSSSSSSSSSSSSSSSS");
 
     }
@@ -74,7 +75,7 @@ public class AdaptadorCarrito extends RecyclerView.Adapter<AdaptadorCarrito.Carr
     }
 
     public class CarritoHolder extends RecyclerView.ViewHolder {
-        TextView txtnombreplato,txtcantidad,txtprecio,txtidcarrito,txtidplato;
+        TextView txtnombreplato,txtcantidad,txtprecio,txtidcarrito,txtidplato,txtTotal;
         ImageView fotoplato;
 
         public CarritoHolder(@NonNull View itemView) {
@@ -85,6 +86,7 @@ public class AdaptadorCarrito extends RecyclerView.Adapter<AdaptadorCarrito.Carr
             txtnombreplato=itemView.findViewById(R.id.txtcarritonombreplato);
             txtcantidad=itemView.findViewById(R.id.txtCantidadCarrito);
             txtprecio=itemView.findViewById(R.id.txtprecioCarrito);
+            txtTotal=itemView.findViewById(R.id.textTotalPagar);
             fotoplato=itemView.findViewById(R.id.imagenCarrito);
         }
     }

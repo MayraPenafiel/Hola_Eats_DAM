@@ -47,6 +47,7 @@ public class ActivityCarrito extends AppCompatActivity {
         txtcantidad=findViewById(R.id.txtprecioCarrito);
         carritoimagen=findViewById(R.id.imagenCarrito);
         recyclerView=findViewById(R.id.itemsCarrito);
+        txtTotal=findViewById(R.id.textTotalPagar);
 
         //carritoCompras.add(CarritoCompras("","",null,null,null));
         sqliteBase=new SQLITEBase(getApplicationContext(),"carrito_base",null,3);
@@ -104,29 +105,16 @@ public class ActivityCarrito extends AppCompatActivity {
             carritoCompras.add(c);
 
         }
-
-    }
-
-    public void actualizarCantidad(ArrayList<CarritoCompras> arrayCarrito) {
-
-        int total = 0;
-        for (int i = 0; i < arrayCarrito.size(); i++) {
-            total = (arrayCarrito.get(i).getCantidad() * arrayCarrito.get(i).getPrecio().intValue()) + total;
-        }
-        System.out.println(total+" totaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaalll");
-        txtTotal.setText("$" + total);
-        adaptadorCarrito = new AdaptadorCarrito(context, arrayCarrito);
-        recyclerView.setAdapter(adaptadorCarrito);
-    }
-
-    public void actualizarTotal(){
-        int total = 0;
+        double total=0;
         for (int i = 0; i < carritoCompras.size(); i++) {
-            total = (carritoCompras.get(i).getCantidad() * carritoCompras.get(i).getPrecio().intValue()) + total;
+            total= ((carritoCompras.get(i).getPrecio())*carritoCompras.get(i).getCantidad()+total);
+            txtTotal.setText(String.valueOf(total));
+            System.out.println(total+"Aqui total");
         }
-        System.out.println(total+" totaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaalll");
-        txtTotal.setText("$" + total);
+
     }
+
+
 
 
 }
