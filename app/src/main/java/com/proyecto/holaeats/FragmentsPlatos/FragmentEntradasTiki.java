@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.proyecto.holaeats.ActividadDetallePlato;
+import com.proyecto.holaeats.MainActivity;
 import com.proyecto.holaeats.R;
 import com.proyecto.holaeats.adaptadores.RecyclerAdaptadorPlatos;
 import com.proyecto.holaeats.api.ServiceProducto;
@@ -92,7 +93,7 @@ public class FragmentEntradasTiki extends Fragment implements RecyclerAdaptadorP
 
             listaproducto = new ArrayList<>();
             Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl("http://192.168.100.210:8080/api/")
+                    .baseUrl(MainActivity.BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
             ServiceProducto json = retrofit.create(ServiceProducto.class);

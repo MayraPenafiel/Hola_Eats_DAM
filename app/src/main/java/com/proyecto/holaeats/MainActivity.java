@@ -12,6 +12,9 @@ import android.widget.ImageView;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static String NOMBRE_CLIENTE;
+    public static int ID_CLENTE;
+    public static String BASE_URL="http://192.168.1.136:8080/api/";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

@@ -49,11 +49,11 @@ public class ActivityInformacionPago extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                    FacturaEnc responseRegisterClass = new FacturaEnc();
+                    /*FacturaEnc responseRegisterClass = new FacturaEnc();
                     //ResponseRegisterClass p = new   ResponseRegisterClass();
                     responseRegisterClass.setCedula(txtcedula.getText().toString());
                     responseRegisterClass.setFecha(fecha.getText().toString());
-                    responseRegisterClass.setForma_pago(.getText().toString());
+                    responseRegisterClass.setForma_pago(?.getText().toString());
                     responseRegisterClass.setPersona(nombres.getText().toString());
                     responseRegisterClass.setDireccion(txtdireccion.getText().toString());
                     responseRegisterClass.setTelefono(txttelefono.getText().toString());
@@ -79,7 +79,7 @@ public class ActivityInformacionPago extends AppCompatActivity {
                         public void onFailure(Call<ResponseClass> call, Throwable t) {
 
                         }
-                    });
+                    });*/
 
 
 
@@ -96,14 +96,14 @@ public class ActivityInformacionPago extends AppCompatActivity {
                 mes=c.get(Calendar.MONTH);
                 year=c.get(Calendar.YEAR);
 
-                DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
+                /*DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
                         fecha.setText(dayOfMonth+"/"+(monthOfYear+1)+"/"+year);
                     }
                 }
                         ,dia,mes,year);
-                datePickerDialog.show();
+                datePickerDialog.show();*/
             }
         });
     }
