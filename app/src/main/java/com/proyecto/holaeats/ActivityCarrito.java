@@ -51,7 +51,7 @@ public class ActivityCarrito extends AppCompatActivity {
         carritoimagen=findViewById(R.id.imagenCarrito);
         recyclerView=findViewById(R.id.itemsCarrito);
         txtTotal=findViewById(R.id.textTotalPagar);
-        botoncontinuar=findViewById(R.id.botonContinuarCarrito);
+        botoncontinuar=findViewById(R.id.btnContinuarCarrito);
 
         //carritoCompras.add(CarritoCompras("","",null,null,null));
         sqliteBase=new SQLITEBase(getApplicationContext(),"carrito_base",null,4);

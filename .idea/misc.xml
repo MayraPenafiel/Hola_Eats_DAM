@@ -14,6 +14,7 @@
         <entry key="..\:/Users/TUF Gaming/Documents/GitHub/Hola_Eats_DAM/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1" />
         <entry key="..\:/Users/TUF Gaming/Documents/GitHub/Hola_Eats_DAM/app/src/main/res/layout/activity_carrito_pedidos.xml" value="0.25052083333333336" />
         <entry key="..\:/Users/TUF Gaming/Documents/GitHub/Hola_Eats_DAM/app/src/main/res/layout/activity_detalle_pedido.xml" value="0.25052083333333336" />
+        <entry key="..\:/Users/TUF Gaming/Documents/GitHub/Hola_Eats_DAM/app/src/main/res/layout/activity_detalle_plato.xml" value="0.2418478260869565" />
         <entry key="..\:/Users/TUF Gaming/Documents/GitHub/Hola_Eats_DAM/app/src/main/res/layout/activity_historial_pedidos.xml" value="0.1" />
         <entry key="..\:/Users/TUF Gaming/Documents/GitHub/Hola_Eats_DAM/app/src/main/res/layout/activity_home.xml" value="0.12335359675785208" />
         <entry key="..\:/Users/TUF Gaming/Documents/GitHub/Hola_Eats_DAM/app/src/main/res/layout/activity_inicio.xml" value="0.23645833333333333" />
@@ -24,6 +25,7 @@
         <entry key="..\:/Users/TUF Gaming/Documents/GitHub/Hola_Eats_DAM/app/src/main/res/layout/activity_main_platos.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/TUF Gaming/Documents/GitHub/Hola_Eats_DAM/app/src/main/res/layout/activity_register.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/TUF Gaming/Documents/GitHub/Hola_Eats_DAM/app/src/main/res/layout/detallepedido_item.xml" value="0.25052083333333336" />
+        <entry key="..\:/Users/TUF Gaming/Documents/GitHub/Hola_Eats_DAM/app/src/main/res/layout/grid_platos.xml" value="0.25052083333333336" />
         <entry key="..\:/Users/TUF Gaming/Documents/GitHub/Hola_Eats_DAM/app/src/main/res/layout/historial_item.xml" value="0.12183383991894631" />
         <entry key="..\:/Users/TUF Gaming/Documents/GitHub/Hola_Eats_DAM/app/src/main/res/layout/item_carito.xml" value="0.3391003460207612" />
         <entry key="..\:/Users/TUF Gaming/Documents/GitHub/Hola_Eats_DAM/app/src/main/res/menu/bottom_navigation.xml" value="0.24974358974358973" />
@@ -35,7 +37,7 @@
         <entry key="..\:/Users/Usuario/Documents/GitHub/Hola_Eats_DAM/app/src/main/res/layout/activity_register.xml" value="0.264" />
         <entry key="..\:/Users/daysi/Documents/GitHub/Hola_Eats_DAM/app/src/main/res/layout/activity_carrito_pedidos.xml" value="0.22" />
         <entry key="..\:/Users/daysi/Documents/GitHub/Hola_Eats_DAM/app/src/main/res/layout/activity_confirmar_orden.xml" value="0.25" />
-        <entry key="..\:/Users/daysi/Documents/GitHub/Hola_Eats_DAM/app/src/main/res/layout/activity_detalle_plato.xml" value="0.22" />
+        <entry key="..\:/Users/daysi/Documents/GitHub/Hola_Eats_DAM/app/src/main/res/layout/activity_detalle_plato.xml" value="0.1" />
         <entry key="..\:/Users/daysi/Documents/GitHub/Hola_Eats_DAM/app/src/main/res/layout/activity_home.xml" value="0.20260416666666667" />
         <entry key="..\:/Users/daysi/Documents/GitHub/Hola_Eats_DAM/app/src/main/res/layout/activity_informacion_pago.xml" value="0.33" />
         <entry key="..\:/Users/daysi/Documents/GitHub/Hola_Eats_DAM/app/src/main/res/layout/activity_login.xml" value="0.14356884057971014" />
@@ -49,7 +51,6 @@
         <entry key="..\:/Users/daysi/Documents/GitHub/Hola_Eats_DAM/app/src/main/res/layout/grid_platos.xml" value="0.1" />
         <entry key="..\:/Users/daysi/Documents/GitHub/Hola_Eats_DAM/app/src/main/res/layout/item_carito.xml" value="0.25" />
         <entry key="..\:/Users/daysi/Documents/GitHub/Hola_Eats_DAM/app/src/main/res/menu/bottom_navigation.xml" value="0.1" />
-        <entry key="..\:/Users/daysi/Documents/GitHub/Hola_Eats_DAM/app/src/main/res/mipmap-anydpi-v26/ic_launcherhola.xml" value="0.1715" />
       </map>
     </option>
   </component>

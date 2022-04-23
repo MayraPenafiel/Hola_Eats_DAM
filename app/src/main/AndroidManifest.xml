@@ -38,7 +38,8 @@
             android:exported="false" />
         <activity
             android:name=".ActividadDetallePlato"
-            android:exported="false" />
+            android:exported="false"
+            android:parentActivityName=".ActivityMainPlatos"/>
         <activity
             android:name=".ActivityCarrito"
             android:exported="false"
