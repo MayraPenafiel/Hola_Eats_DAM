@@ -86,6 +86,12 @@ public class ActivityCarrito extends AppCompatActivity {
                     return true;
                 case R.id.carrito:
                     return  true;
+                case  R.id.Cuenta:;
+                    startActivity(new Intent(getApplicationContext(),
+                            ActivityPerfil.class));
+                    overridePendingTransition(0,0);
+                    return true;
+
 
 
             }
