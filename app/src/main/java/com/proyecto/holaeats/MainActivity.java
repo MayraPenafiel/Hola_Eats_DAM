@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static String NOMBRE_CLIENTE;
     public static int ID_CLENTE;
-    public static String BASE_URL="http://192.168.1.136:8080/api/";
+    public static String BASE_URL="http://192.168.18.56:8080/api/";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent= new Intent(MainActivity.this, LoginActivity.class);
+                Intent intent= new Intent(MainActivity.this, ActivityMainPlatos.class);
                 startActivity(intent);
                 finish();
             }

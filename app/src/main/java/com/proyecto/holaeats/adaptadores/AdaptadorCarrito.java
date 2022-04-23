@@ -37,6 +37,8 @@ public class AdaptadorCarrito extends RecyclerView.Adapter<AdaptadorCarrito.Carr
         this.carritolist= carritolist;
     }
 
+
+
     @NonNull
     @Override
     public CarritoHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -52,12 +54,13 @@ public class AdaptadorCarrito extends RecyclerView.Adapter<AdaptadorCarrito.Carr
         holder.txtidcarrito.setText(item.getId_carrito());
         holder.txtidplato.setText(item.getId_producto());
         holder.txtnombreplato.setText(item.getNombre());
-        holder.txtprecio.setText("$"+String.valueOf(item.getPrecio()));
+        holder.txtprecio.setText("$"+item.getPrecio());
         holder.txtcantidad.setText(String.valueOf(item.getCantidad()));
         Picasso.get()
                 .load(item.getImagen())
                 .error(R.mipmap.ic_launcher)
                 .into(holder.fotoplato);
+
 
 
         //System.out.println(listaCarrito.get(position).getIdFactura()+"  NOMBRESSSSSSSSSSSSSSSSS");
@@ -72,7 +75,7 @@ public class AdaptadorCarrito extends RecyclerView.Adapter<AdaptadorCarrito.Carr
     }
 
     public class CarritoHolder extends RecyclerView.ViewHolder {
-        TextView txtnombreplato,txtcantidad,txtprecio,txtidcarrito,txtidplato;
+        TextView txtnombreplato,txtcantidad,txtprecio,txtidcarrito,txtidplato,txtTotal;
         ImageView fotoplato;
 
         public CarritoHolder(@NonNull View itemView) {
@@ -83,6 +86,7 @@ public class AdaptadorCarrito extends RecyclerView.Adapter<AdaptadorCarrito.Carr
             txtnombreplato=itemView.findViewById(R.id.txtcarritonombreplato);
             txtcantidad=itemView.findViewById(R.id.txtCantidadCarrito);
             txtprecio=itemView.findViewById(R.id.txtprecioCarrito);
+            txtTotal=itemView.findViewById(R.id.textTotalPagar);
             fotoplato=itemView.findViewById(R.id.imagenCarrito);
         }
     }

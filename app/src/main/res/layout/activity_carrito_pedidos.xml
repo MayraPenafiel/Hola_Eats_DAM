@@ -7,46 +7,60 @@
     android:background="#000000"
     tools:context=".ActivityCarrito">
 
-    <TextView
-        android:id="@+id/textTotalPagar"
-        android:layout_width="147dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="5dp"
-        android:text="$$$$$$$"
-        android:textColor="#ffffff"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/botonContinuarCarrito"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView8"
-        app:layout_constraintTop_toBottomOf="@+id/itemsCarrito"
-        tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/txteinfopago3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:background="#000000"
-        android:text="CARRITO DE PEDIDOS"
-        android:textColor="#FFFFFF"
-        android:textSize="28sp"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="match_parent"
+        android:layout_height="325dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/itemsCarrito"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </androidx.recyclerview.widget.RecyclerView>
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:layout_width="365dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="5dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/botonContinuar2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView">
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="182dp"
+            android:layout_height="41dp"
+            android:layout_marginTop="4dp"
+            android:text="Total a Pagar"
+            android:textColor="#ffffff"
+            android:textSize="22sp"
+            tools:ignore="MissingConstraints" />
+
+        <TextView
+            android:id="@+id/textTotalPagar"
+            android:layout_width="153dp"
+            android:layout_height="42dp"
+            android:layout_marginTop="4dp"
+            android:text="$$$$$$$"
+            android:textColor="#ffffff"
+            android:textSize="22sp"
+            tools:ignore="MissingConstraints" />
+
+    </LinearLayout>
 
     <Button
-        android:id="@+id/botonContinuarCarrito"
+        android:id="@+id/botonContinuar2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginTop="15dp"
-        android:layout_marginEnd="100dp"
-        android:layout_marginBottom="30dp"
+        android:layout_marginBottom="40dp"
         android:backgroundTint="#EDCB35"
         android:text="CONTINUAR"
         android:textColorLink="#FFFFFF"
@@ -56,33 +70,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="147dp"
-        android:layout_height="42dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginEnd="5dp"
-        android:layout_marginBottom="5dp"
-        android:text="Total a Pagar"
-        android:textColor="#ffffff"
-        android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/botonContinuarCarrito"
-        app:layout_constraintEnd_toStartOf="@+id/textTotalPagar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/itemsCarrito"
-        tools:ignore="MissingConstraints" />
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/itemsCarrito"
-        android:layout_width="402dp"
-        android:layout_height="542dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="5dp"
-        app:layout_constraintBottom_toTopOf="@+id/textView8"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txteinfopago3" />
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        style="@style/BottomNavigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="4dp"
+        android:elevation="8dp"
+        app:labelVisibilityMode="selected"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:menu="@menu/bottom_navigation" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
