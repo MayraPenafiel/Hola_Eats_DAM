@@ -7,8 +7,8 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 public class Persona implements Serializable{
 
-    @SerializedName("id_persona")
-    private int id_persona;
+    @SerializedName("personaId")
+    private int personaId;
 
     @SerializedName("cedula")
     private String cedula;
@@ -45,12 +45,12 @@ public class Persona implements Serializable{
 
     }
 
-    public int getId_persona() {
-        return id_persona;
+    public int getPersonaId() {
+        return personaId;
     }
 
-    public void setId_persona(int id_persona) {
-        this.id_persona = id_persona;
+    public void setPersonaId(int id_persona) {
+        this.personaId = id_persona;
     }
 
     public void setUsername(String username) {
