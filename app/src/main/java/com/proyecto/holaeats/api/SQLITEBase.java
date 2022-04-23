@@ -13,19 +13,9 @@ import androidx.annotation.Nullable;
 import com.squareup.picasso.Picasso;
 
 public class SQLITEBase extends SQLiteOpenHelper {
-    public static final String DATABASE_NOMBRE= "carrito_base";
-   public static final int VERSIONDB= 1;
 
-    public static final String TABLA_CARRITO= "create table carrito(" +
-            "id_producto LONG  PRIMARY KEY AUTOINCREMENT NOT NULL," +
-            "nombre TEXT," +
-            "cantidad INTEGER," +
-            "precio double," +
-            "imagen TEXT)";
 
-   /* public SQLITEBase( Context context,String DATABASE_NOMBRE,int VERSIONDB) {
-        super(context,DATABASE_NOMBRE , null, VERSIONDB);
-    }*/
+
    public SQLITEBase(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
        super(context, name, factory, version);
    }
@@ -33,6 +23,7 @@ public class SQLITEBase extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(Utilidades.CREAR_TABLA_CARRITO);
+        sqLiteDatabase.execSQL(Utilidades.CREAR_TABLA_FACTURAENC);
 
     }
 
@@ -41,6 +32,7 @@ public class SQLITEBase extends SQLiteOpenHelper {
 
 
         Database.execSQL("DROP TABLE IF EXISTS "+Utilidades.TABLA_CARRITO);
+        Database.execSQL("DROP TABLE IF EXISTS "+Utilidades.TABLA_FACTURAENC);
         onCreate(Database);
 
 
@@ -56,6 +48,23 @@ public class SQLITEBase extends SQLiteOpenHelper {
         contentValues.put("cantidad",cantidad);
         contentValues.put("imagen", imagen);
         long result=DB.insert("carrito", null, contentValues);
+        if(result==-1){
+            return false;
+        }else{
+            return true;
+        }
+    }
+    public Boolean informacionPago(String fecha, String pago,String destino,String id_producto,double total)
+    {
+        SQLiteDatabase DB = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+
+        contentValues.put("fecha", fecha);
+        contentValues.put("forma_pago", pago);
+        contentValues.put("destino",destino);
+        contentValues.put("id_producto", id_producto);
+        contentValues.put("total", total);
+        long result=DB.insert("factura", null, contentValues);
         if(result==-1){
             return false;
         }else{
