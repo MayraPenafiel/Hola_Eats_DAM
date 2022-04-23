@@ -94,42 +94,16 @@ public class ActivityCarrito extends AppCompatActivity {
         }
 
     }
-    /* public void grabarApi() {
+    public void grabarApi() {
         Producto p = new Producto();
         btnsiguinte.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                FacturaDetalle fact = new FacturaDetalle();
-                //ResponseRegisterClass p = new   ResponseRegisterClass();
-                fact.setCantidad(txtcantidad.getText().toString());
-                fact.setPrecio(txtprecio.getText().toString());
-                // fact.setProducto(p.getIdProducto(txtidplato.getText().toString()));
 
-
-                ServiceFactura apiService = Apis.getInstance().create(ServiceFactura.class);
-             /*   apiService(fact).new Callback<ResponseClass>() {
-                    @Override
-                    public void onResponse(Call<ResponseClass> call, Response<ResponseClass> response) {
-                        if (response.body() != null) {
-                            Toast.makeText(RegisterActivity.this, "Registration con exito", Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                            startActivity(intent);*/
-
-
-           /* } else
-
-            {
-                Toast.makeText(ActivityCarrito.this, "algo salio mal! vuelva a intentarlo", Toast.LENGTH_SHORT).show();
             }
-
-
-                public void onFailure (Call < ResponseClass > call, Throwable t){
-
-
-                }
-            }
-        }*/
+        });
+    }
 
 
 

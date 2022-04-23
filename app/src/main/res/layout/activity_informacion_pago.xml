@@ -58,7 +58,7 @@
         android:id="@+id/editnumtarjetapago"
         android:layout_width="225dp"
         android:layout_height="48dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="21dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="160dp"
         android:background="#ffffff"
@@ -89,7 +89,7 @@
         android:layout_marginEnd="2dp"
         android:background="#ffffff"
         android:ems="10"
-        android:hint="Fecha de Vencimiento"
+        android:hint="Fecha "
         android:inputType="textPersonName"
         android:textSize="15sp"
         app:layout_constraintEnd_toStartOf="@+id/botonfecha"
@@ -97,30 +97,17 @@
         app:layout_constraintTop_toBottomOf="@+id/editnumtarjetapago" />
 
     <EditText
-        android:id="@+id/editnombrecompleto"
+        android:id="@+id/editidpersona"
         android:layout_width="277dp"
         android:layout_height="48dp"
         android:layout_marginStart="21dp"
-        android:layout_marginTop="92dp"
+        android:layout_marginTop="32dp"
         android:background="#ffffff"
         android:ems="10"
-        android:hint="Cedula"
+        android:hint="Id"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editfecha" />
-
-    <EditText
-        android:id="@+id/editcvv"
-        android:layout_width="149dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="11dp"
-        android:layout_marginEnd="32dp"
-        android:background="#ffffff"
-        android:ems="10"
-        android:hint="CVV"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editnumtarjetapago" />
 
     <TextView
         android:id="@+id/textView7"
@@ -154,6 +141,31 @@
         android:text="Tipo de pago /Tarjeta"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txteinfopago" />
+
+    <TextView
+        android:id="@+id/txttotal"
+        android:layout_width="185dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="10dp"
+        android:background="#ffffff"
+        android:text="Total"
+        android:textColor="#000000"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+
+    <EditText
+        android:id="@+id/editTextTextPersonName"
+        android:layout_width="218dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="10dp"
+        android:background="#ffffff"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="Entraga en "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editidpersona" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

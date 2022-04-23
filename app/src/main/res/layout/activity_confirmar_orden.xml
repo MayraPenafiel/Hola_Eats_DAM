@@ -59,16 +59,6 @@
             android:text="Cliente"
             android:textColor="#000000"
             android:textSize="22sp" />
-        <EditText
-            android:id="@+id/editconfiNombresCli"
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="1dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:paddingLeft="10dp"
-            android:text="Name" />
 
         <TextView
             android:id="@+id/txt2"
@@ -77,19 +67,9 @@
             android:layout_marginStart="10dp"
             android:layout_marginTop="40dp"
             android:paddingLeft="10dp"
-            android:text="Metodo de Pago"
+            android:text="Numero de Tarjeta"
             android:textColor="#000000"
             android:textSize="22sp" />
-        <EditText
-            android:id="@+id/editconfirmarmetodo"
-            android:layout_width="wrap_content"
-            android:layout_height="45dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="1dp"
-            android:ems="10"
-            android:inputType="textPersonName"
-            android:paddingLeft="10dp"
-            android:text="Name" />
 
 
         <TextView

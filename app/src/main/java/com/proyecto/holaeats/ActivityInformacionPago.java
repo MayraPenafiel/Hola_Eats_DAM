@@ -1,31 +1,22 @@
 package com.proyecto.holaeats;
 
-import android.app.DatePickerDialog;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.proyecto.holaeats.api.Apis;
-import com.proyecto.holaeats.api.ServicePersona;
-import com.proyecto.holaeats.modelo.FacturaEnc;
-import com.proyecto.holaeats.modelo.Persona;
-import com.proyecto.holaeats.modelo.ResponseClass;
+import com.proyecto.holaeats.api.SQLITEBase;
 
 import java.util.Calendar;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
-
 public class ActivityInformacionPago extends AppCompatActivity {
-    EditText numtarjeta,nombres,fecha,cvv;
+    EditText numtarjeta,nombres,fechatxt,editidpersona;
+    TextView totalCarrito;
     Button continuarboton;
     ImageButton botonfecha;
     private  int dia,mes,year;
@@ -35,52 +26,38 @@ public class ActivityInformacionPago extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_informacion_pago);
         numtarjeta=findViewById(R.id.editnumtarjetapago);
-        nombres=findViewById(R.id.editnombrecompleto);
-        fecha=findViewById(R.id.editfecha);
+        nombres=findViewById(R.id.editidpersona);
+        fechatxt=findViewById(R.id.editfecha);
         botonfecha=findViewById(R.id.botonfecha);
         continuarboton=findViewById(R.id.botonContinuarinfo);
+        totalCarrito=findViewById(R.id.txttotal);
+        editidpersona=findViewById(R.id.editidpersona);
 
 
 
 
     }
     private void onClickListeners() {
+        final SQLITEBase base = new SQLITEBase(this,"carrito_base",null,3);
         continuarboton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                    /*FacturaEnc responseRegisterClass = new FacturaEnc();
-                    //ResponseRegisterClass p = new   ResponseRegisterClass();
-                    responseRegisterClass.setCedula(txtcedula.getText().toString());
-                    responseRegisterClass.setFecha(fecha.getText().toString());
-                    responseRegisterClass.setForma_pago(?.getText().toString());
-                    responseRegisterClass.setPersona(nombres.getText().toString());
-                    responseRegisterClass.setDireccion(txtdireccion.getText().toString());
-                    responseRegisterClass.setTelefono(txttelefono.getText().toString());
-                    responseRegisterClass.setPassword(etRegisterPassword.getText().toString());
-                    responseRegisterClass.setUsername(etRegisterUsername.getText().toString());
-
-                    ServicePersona apiService = Apis.getInstance().create(ServicePersona.class);
-                    apiService.addUser(responseRegisterClass).enqueue(new Callback<ResponseClass>() {
-                        @Override
-                        public void onResponse(Call<ResponseClass> call, Response<ResponseClass> response) {
-                            if (response.body() != null) {
-                                Toast.makeText(RegisterActivity.this, "Registration con exito", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                                startActivity(intent);
 
 
-                            } else {
-                                Toast.makeText(RegisterActivity.this, "algo salio mal! vuelva a intentarlo", Toast.LENGTH_SHORT).show();
-                            }
-                        }
 
-                        @Override
-                        public void onFailure(Call<ResponseClass> call, Throwable t) {
+                String fecha = fechatxt.getText().toString();
+                double total = Double.parseDouble(totalCarrito.getText().toString());
+                String id_cliente=editidpersona.getText().toString();
+                String codtarjeta=numtarjeta.getText().toString();
 
-                        }
-                    });*/
 
+                Boolean checkinsertdata = base.informacionPago(fecha,total,id_cliente,codtarjeta);
+                if(checkinsertdata==true) {
+                    Toast.makeText(getApplicationContext(), "Nuevos Datos Ingresados", Toast.LENGTH_SHORT).show();
+                }else {
+                    Toast.makeText(getApplicationContext(), "Datos no Ingresados", Toast.LENGTH_SHORT).show();
+                }
 
 
 
@@ -107,4 +84,5 @@ public class ActivityInformacionPago extends AppCompatActivity {
             }
         });
     }
+
 }
