@@ -14,7 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static String NOMBRE_CLIENTE;
     public static int ID_CLENTE;
-    public static String BASE_URL="http://192.168.18.56:8080/api/";
+    public static String BASE_URL="http://192.168.100.210:8080/api/";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

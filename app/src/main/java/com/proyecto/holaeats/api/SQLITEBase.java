@@ -32,6 +32,7 @@ public class SQLITEBase extends SQLiteOpenHelper {
 
 
         Database.execSQL("DROP TABLE IF EXISTS "+Utilidades.TABLA_CARRITO);
+        onCreate(Database);
         Database.execSQL("DROP TABLE IF EXISTS "+Utilidades.TABLA_FACTURAENC);
         onCreate(Database);
 

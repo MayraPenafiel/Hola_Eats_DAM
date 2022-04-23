@@ -59,7 +59,7 @@
         android:layout_width="225dp"
         android:layout_height="48dp"
         android:layout_marginStart="21dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="30dp"
         android:layout_marginEnd="160dp"
         android:background="#ffffff"
         android:ems="10"
@@ -67,7 +67,7 @@
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edittipopago" />
+        app:layout_constraintTop_toBottomOf="@+id/txteinfopago" />
 
     <ImageButton
         android:id="@+id/botonfecha"
@@ -89,7 +89,7 @@
         android:layout_marginEnd="2dp"
         android:background="#ffffff"
         android:ems="10"
-        android:hint="Fecha "
+        android:hint="Fecha Vencimiento"
         android:inputType="textPersonName"
         android:textSize="15sp"
         app:layout_constraintEnd_toStartOf="@+id/botonfecha"
@@ -104,7 +104,7 @@
         android:layout_marginTop="32dp"
         android:background="#ffffff"
         android:ems="10"
-        android:hint="Id"
+        android:hint="Cedula"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editfecha" />
@@ -127,19 +127,6 @@
         android:layout_marginEnd="44dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txteinfopago" />
-
-    <EditText
-        android:id="@+id/edittipopago"
-        android:layout_width="212dp"
-        android:layout_height="48dp"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="16dp"
-        android:background="#ffffff"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Tipo de pago /Tarjeta"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txteinfopago" />
 
     <TextView

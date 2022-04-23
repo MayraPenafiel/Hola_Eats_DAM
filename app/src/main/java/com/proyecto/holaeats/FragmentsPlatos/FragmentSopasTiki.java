@@ -84,7 +84,7 @@ public class FragmentSopasTiki extends Fragment implements RecyclerAdaptadorPlat
 
 
 
-        recyclerView=vista.findViewById(R.id.RecyclerIdPlato);
+        recyclerView=vista.findViewById(R.id.RecyclerIdPlato2);
 
 
         getItemsSQL();
@@ -97,26 +97,30 @@ public class FragmentSopasTiki extends Fragment implements RecyclerAdaptadorPlat
     }
 
     private void getItemsSQL()  {
-        listaproducto=new ArrayList<>();
+
+        listaproducto = new ArrayList<>();
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(MainActivity.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         ServiceProducto json = retrofit.create(ServiceProducto.class);
         //Call<List<Producto>> call = json.productos();
-        Call<List<Producto>> call =json.productos();
+        Call<List<Producto>> call = json.getCartegoria4();
         call.enqueue(new Callback<List<Producto>>() {
             @Override
             public void onResponse(Call<List<Producto>> call, Response<List<Producto>> response) {
                 List<Producto> post = response.body();
                 for (Producto producto : post) {
+
                     producto.setNombre(producto.getNombre());
                     producto.setFoto(producto.getFoto());
-                    System.out.println(producto.getNombre()+" sdfdsdfsfdsfsd");
+                    System.out.println(producto.getNombre() + " NOMBRESSSSSS");
+                    producto.setFoto(producto.getFoto());
+
                     listaproducto.add(producto);
                 }
-                System.out.println(listaproducto.size()+ " iiiiiiiiiiiiiiiiiiiiiddddddd");
-                adaptadorPlatos=new RecyclerAdaptadorPlatos(getContext(),listaproducto,FragmentSopasTiki.this);
+                System.out.println(listaproducto.size() + " iiiiiiiiiiiiiiiiiiiiiddddddd");
+                adaptadorPlatos = new RecyclerAdaptadorPlatos(getContext(), listaproducto, FragmentSopasTiki.this);
                 recyclerView.setAdapter(adaptadorPlatos);
 
             }
@@ -126,6 +130,7 @@ public class FragmentSopasTiki extends Fragment implements RecyclerAdaptadorPlat
 
             }
         });
+
 
     }
 

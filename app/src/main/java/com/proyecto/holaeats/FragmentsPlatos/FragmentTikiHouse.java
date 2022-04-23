@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.proyecto.holaeats.ActividadDetallePlato;
@@ -73,30 +75,40 @@ public class FragmentTikiHouse extends Fragment implements RecyclerAdaptadorPlat
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tiki_house, container, false);
+        ViewGroup vista=(ViewGroup) inflater.inflate(R.layout.fragment_tiki_house,container,false);
+
+        recyclerView=vista.findViewById(R.id.RecyclerIdPlato4);
+        getItemsSQL();
+        LinearLayoutManager manager=new GridLayoutManager(getContext(),2);
+        recyclerView.setLayoutManager(manager);
+        return vista;
     }
 
     private void getItemsSQL()  {
-        listaproducto=new ArrayList<>();
+
+        listaproducto = new ArrayList<>();
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(MainActivity.BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
         ServiceProducto json = retrofit.create(ServiceProducto.class);
         //Call<List<Producto>> call = json.productos();
-        Call<List<Producto>> call =json.productos();
+        Call<List<Producto>> call = json.getCartegoria1();
         call.enqueue(new Callback<List<Producto>>() {
             @Override
             public void onResponse(Call<List<Producto>> call, Response<List<Producto>> response) {
                 List<Producto> post = response.body();
                 for (Producto producto : post) {
+
                     producto.setNombre(producto.getNombre());
                     producto.setFoto(producto.getFoto());
-                    System.out.println(producto.getNombre()+" sdfdsdfsfdsfsd");
+                    System.out.println(producto.getNombre() + " NOMBRESSSSSS");
+                    producto.setFoto(producto.getFoto());
+
                     listaproducto.add(producto);
                 }
-                System.out.println(listaproducto.size()+ " iiiiiiiiiiiiiiiiiiiiiddddddd");
-                adaptadorPlatos=new RecyclerAdaptadorPlatos(getContext(),listaproducto,FragmentTikiHouse.this);
+                System.out.println(listaproducto.size() + " iiiiiiiiiiiiiiiiiiiiiddddddd");
+                adaptadorPlatos = new RecyclerAdaptadorPlatos(getContext(), listaproducto, FragmentTikiHouse.this);
                 recyclerView.setAdapter(adaptadorPlatos);
 
             }
@@ -106,6 +118,7 @@ public class FragmentTikiHouse extends Fragment implements RecyclerAdaptadorPlat
 
             }
         });
+
 
     }
 

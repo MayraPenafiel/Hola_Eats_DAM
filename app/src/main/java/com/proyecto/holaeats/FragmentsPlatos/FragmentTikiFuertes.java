@@ -7,6 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.proyecto.holaeats.ActividadDetallePlato;
@@ -66,7 +68,13 @@ public class FragmentTikiFuertes extends Fragment implements RecyclerAdaptadorPl
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_tiki_fuertes, container, false);
+        ViewGroup vista=(ViewGroup) inflater.inflate(R.layout.fragment_tiki_fuertes,container,false);
+
+        recyclerView=vista.findViewById(R.id.RecyclerIdPlato3);
+        getItemsSQL();
+        LinearLayoutManager manager=new GridLayoutManager(getContext(),2);
+        recyclerView.setLayoutManager(manager);
+        return vista;
     }
     private void getItemsSQL()  {
         listaproducto=new ArrayList<>();
@@ -76,7 +84,7 @@ public class FragmentTikiFuertes extends Fragment implements RecyclerAdaptadorPl
                 .build();
         ServiceProducto json = retrofit.create(ServiceProducto.class);
 
-        Call<List<Producto>> call =json.productos();
+        Call<List<Producto>> call =json.getCartegoria2();
         call.enqueue(new Callback<List<Producto>>() {
             @Override
             public void onResponse(Call<List<Producto>> call, Response<List<Producto>> response) {
