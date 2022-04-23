@@ -17,7 +17,7 @@ public class SQLITEBase extends SQLiteOpenHelper {
    public static final int VERSIONDB= 1;
 
     public static final String TABLA_CARRITO= "create table carrito(" +
-            "id_producto INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
+            "id_producto LONG  PRIMARY KEY AUTOINCREMENT NOT NULL," +
             "nombre TEXT," +
             "cantidad INTEGER," +
             "precio double," +
@@ -45,23 +45,12 @@ public class SQLITEBase extends SQLiteOpenHelper {
 
 
     }
-    public void CarritoPedidos1(String nombre,  int cantidad, double precio,String img){
 
-        SQLiteDatabase base= getWritableDatabase();
-
-        if (base!=null){
-
-
-                base.execSQL("INSERT INTO carrito VALUES("+null+",'"+nombre+"',"+cantidad+","+precio+",'"+img+"')");
-                base.close();
-
-
-        }
-    }
-    public Boolean CarritoPedidos(String nombre, double precio,int cantidad,String imagen)
+    public Boolean CarritoPedidos(Long id_producto,String nombre, double precio,int cantidad,String imagen)
     {
         SQLiteDatabase DB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
+        contentValues.put("id_producto",id_producto);
         contentValues.put("nombre", nombre);
         contentValues.put("precio", precio);
         contentValues.put("cantidad",cantidad);

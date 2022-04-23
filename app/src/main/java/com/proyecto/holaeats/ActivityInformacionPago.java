@@ -44,50 +44,7 @@ public class ActivityInformacionPago extends AppCompatActivity {
 
 
     }
-    private void onClickListeners() {
-        continuarboton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                    FacturaEnc responseRegisterClass = new FacturaEnc();
-                    //ResponseRegisterClass p = new   ResponseRegisterClass();
-                    responseRegisterClass.setCedula(txtcedula.getText().toString());
-                    responseRegisterClass.setFecha(fecha.getText().toString());
-                    responseRegisterClass.setForma_pago(.getText().toString());
-                    responseRegisterClass.setPersona(nombres.getText().toString());
-                    responseRegisterClass.setDireccion(txtdireccion.getText().toString());
-                    responseRegisterClass.setTelefono(txttelefono.getText().toString());
-                    responseRegisterClass.setPassword(etRegisterPassword.getText().toString());
-                    responseRegisterClass.setUsername(etRegisterUsername.getText().toString());
-
-                    ServicePersona apiService = Apis.getInstance().create(ServicePersona.class);
-                    apiService.addUser(responseRegisterClass).enqueue(new Callback<ResponseClass>() {
-                        @Override
-                        public void onResponse(Call<ResponseClass> call, Response<ResponseClass> response) {
-                            if (response.body() != null) {
-                                Toast.makeText(RegisterActivity.this, "Registration con exito", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
-                                startActivity(intent);
-
-
-                            } else {
-                                Toast.makeText(RegisterActivity.this, "algo salio mal! vuelva a intentarlo", Toast.LENGTH_SHORT).show();
-                            }
-                        }
-
-                        @Override
-                        public void onFailure(Call<ResponseClass> call, Throwable t) {
-
-                        }
-                    });
-
-
-
-
-            }
-        });
-    }
-    public void  fecha(){
+   /* public void  fecha(){
         botonfecha.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -106,5 +63,5 @@ public class ActivityInformacionPago extends AppCompatActivity {
                 datePickerDialog.show();
             }
         });
-    }
+    }*/
 }
