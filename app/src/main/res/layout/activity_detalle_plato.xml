@@ -41,7 +41,7 @@
     <LinearLayout
         android:id="@+id/linearLayout2"
         android:layout_width="383dp"
-        android:layout_height="581dp"
+        android:layout_height="530dp"
         android:layout_marginTop="8dp"
         android:background="#000000"
         android:orientation="vertical"
@@ -117,66 +117,25 @@
 
         </TextView>
 
-        <TextView
-            android:id="@+id/textdetalle_cantidad"
-            android:layout_width="151dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="20dp"
-            android:paddingLeft="10dp"
-            android:text="Cantidad:"
-            android:textColor="#ffffff"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="28dp"
-            tools:layout_editor_absoluteY="437dp">
-
-
-        </TextView>
-
         <EditText
             android:id="@+id/editTextCantidad"
-            android:layout_width="155dp"
-            android:layout_height="wrap_content"
+            android:layout_width="158dp"
+            android:layout_height="42dp"
             android:layout_marginStart="5dp"
+            android:background="#ffffff"
             android:ems="10"
+            android:hint="Cantidad"
             android:inputType="textPersonName"
-            android:text="Name"
-            android:textColor="#ffffff" />
+            android:textColor="#000000" />
+
 
         <TextView
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"
-            android:paddingLeft="10dp"
-            android:text="Sub Total:"
-            android:textColor="#ffffff"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="28dp"
-            tools:layout_editor_absoluteY="437dp">
-
-        </TextView>
-
-        <TextView
-            android:layout_width="183dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="3dp"
-            android:paddingLeft="10dp"
-            android:text="Sub Total:"
-            android:textColor="#ffffff"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="28dp"
-            tools:layout_editor_absoluteY="437dp">
-
-        </TextView>
-
+            android:id="@+id/txtidproducto"
+            android:layout_width="30dp"
+            android:layout_height="25dp"
+            android:text="TextView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <Button
             android:id="@+id/botonAñadirCarrito"
@@ -196,7 +155,6 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
-
 
 
     </LinearLayout>

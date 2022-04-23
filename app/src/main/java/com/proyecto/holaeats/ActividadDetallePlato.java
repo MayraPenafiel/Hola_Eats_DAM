@@ -25,7 +25,7 @@ public class ActividadDetallePlato extends AppCompatActivity {
 
     List<Producto> listaproducto;
     ImageView imagenVer;
-    TextView txtnombre ,txtdescripcion,txtprecio, txtstock;
+    TextView txtnombre ,txtdescripcion,txtprecio, txtstock,idplatotxt;
     Button btnañadir;
     EditText editCantidad;
 
@@ -38,6 +38,7 @@ public class ActividadDetallePlato extends AppCompatActivity {
         txtdescripcion=findViewById(R.id.textdetalle_descripcion);
         txtprecio=findViewById(R.id.textdetallle_precio);
         txtstock=findViewById(R.id.textdetalle_stock);
+        idplatotxt=findViewById(R.id.txtidproducto);
         editCantidad=findViewById(R.id.editTextCantidad);
         btnañadir=findViewById(R.id.botonAñadirCarrito);
 
@@ -50,6 +51,7 @@ public class ActividadDetallePlato extends AppCompatActivity {
 
     public void iniciarActividad(){
         producto= (Producto) getIntent().getExtras().getSerializable("itemDetalle");//mismo nombre que el adapter
+       idplatotxt.setText(String.valueOf(producto.getIdProducto().toString()));
         Picasso.get()
                 .load(producto.getFoto())
                 .error(R.mipmap.ic_launcher)
@@ -74,13 +76,13 @@ public class ActividadDetallePlato extends AppCompatActivity {
                 //base.CarritoPedidos(
                        // txtnombre.getText().toString(),Integer.parseI,NULLnt(editCantidad.getText().toString()),Double.parseDouble(txtprecio.getText().toString()),imagenVer.toString());
 
-
+                Long id_producto=Long.parseLong(idplatotxt.getText().toString());
                 String nombre = txtnombre.getText().toString();
                 int    cantidad = Integer.parseInt(editCantidad.getText().toString());
                 double precio = Double.parseDouble(txtprecio.getText().toString());
                 String foto = imagenVer.toString();
 
-                Boolean checkinsertdata = base.CarritoPedidos(nombre,precio,cantidad,foto);
+                Boolean checkinsertdata = base.CarritoPedidos(id_producto,nombre,precio,cantidad,foto);
                 if(checkinsertdata==true) {
                     Toast.makeText(getApplicationContext(), "Nuevos Datos Ingresados", Toast.LENGTH_SHORT).show();
                 }else {
@@ -90,10 +92,6 @@ public class ActividadDetallePlato extends AppCompatActivity {
         });
 
     }
-    private void addCarrito(){
 
-
-
-    }
 
 }

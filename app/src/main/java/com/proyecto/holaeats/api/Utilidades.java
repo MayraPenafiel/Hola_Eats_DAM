@@ -7,7 +7,7 @@ public class Utilidades {
     public static final String TABLA_FACTDETA="factura_detalle";
     public static final String CREAR_TABLA_CARRITO="CREATE TABLE " +
             ""+TABLA_CARRITO+" ("+ "id_carrito INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL," +
-            "id_producto TEXT,"+
+            "id_producto LONG,"+
             "nombre TEXT," +
             "cantidad INTEGER," +
             "precio double," +

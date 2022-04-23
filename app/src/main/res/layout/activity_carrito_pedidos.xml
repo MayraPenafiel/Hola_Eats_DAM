@@ -18,7 +18,7 @@
         android:text="$$$$$$$"
         android:textColor="#ffffff"
         android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/botonContinuar2"
+        app:layout_constraintBottom_toTopOf="@+id/botonContinuarCarrito"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView8"
         app:layout_constraintTop_toBottomOf="@+id/itemsCarrito"
@@ -40,7 +40,7 @@
         tools:ignore="MissingConstraints" />
 
     <Button
-        android:id="@+id/botonContinuar2"
+        android:id="@+id/botonContinuarCarrito"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
@@ -68,7 +68,7 @@
         android:text="Total a Pagar"
         android:textColor="#ffffff"
         android:textSize="22sp"
-        app:layout_constraintBottom_toTopOf="@+id/botonContinuar2"
+        app:layout_constraintBottom_toTopOf="@+id/botonContinuarCarrito"
         app:layout_constraintEnd_toStartOf="@+id/textTotalPagar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/itemsCarrito"
