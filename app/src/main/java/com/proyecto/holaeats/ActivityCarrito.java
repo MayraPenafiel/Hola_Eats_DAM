@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -108,7 +109,7 @@ public class ActivityCarrito extends AppCompatActivity {
         double total=0;
         for (int i = 0; i < carritoCompras.size(); i++) {
             total= ((carritoCompras.get(i).getPrecio())*carritoCompras.get(i).getCantidad()+total);
-            txtTotal.setText(String.valueOf(total));
+            txtTotal.setText("$"+(total));
             System.out.println(total+"Aqui total");
         }
 
