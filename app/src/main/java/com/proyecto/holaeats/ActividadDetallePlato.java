@@ -68,7 +68,7 @@ public class ActividadDetallePlato extends AppCompatActivity {
 
     }
     public  void añadir(){
-        final SQLITEBase base = new SQLITEBase(this,"carrito_base",null,3);
+        final SQLITEBase base = new SQLITEBase(this,"carrito_base",null,4);
 
         btnañadir.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -1,5 +1,6 @@
 package com.proyecto.holaeats;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +16,7 @@ import com.proyecto.holaeats.api.SQLITEBase;
 import java.util.Calendar;
 
 public class ActivityInformacionPago extends AppCompatActivity {
-    EditText numtarjeta,nombres,fechatxt,editidpersona;
+    EditText numtarjeta,nombres,fechatxt,editidpersona,txtentrega;
     TextView totalCarrito;
     Button continuarboton;
     ImageButton botonfecha;
@@ -32,13 +33,16 @@ public class ActivityInformacionPago extends AppCompatActivity {
         continuarboton=findViewById(R.id.botonContinuarinfo);
         totalCarrito=findViewById(R.id.txttotal);
         editidpersona=findViewById(R.id.editidpersona);
+        txtentrega=findViewById(R.id.editTextentrega);
+        llamar();
+        onClickListeners();
 
 
 
 
     }
     private void onClickListeners() {
-        final SQLITEBase base = new SQLITEBase(this,"carrito_base",null,3);
+        final SQLITEBase base = new SQLITEBase(this,"carrito_base",null,4);
         continuarboton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,12 +51,14 @@ public class ActivityInformacionPago extends AppCompatActivity {
 
 
                 String fecha = fechatxt.getText().toString();
-                double total = Double.parseDouble(totalCarrito.getText().toString());
-                String id_cliente=editidpersona.getText().toString();
                 String codtarjeta=numtarjeta.getText().toString();
+                String entrega=txtentrega.getText().toString();
+                String id_cliente=editidpersona.getText().toString();
+                double total = Double.parseDouble(totalCarrito.getText().toString());
 
 
-                Boolean checkinsertdata = base.informacionPago(fecha,total,id_cliente,codtarjeta);
+
+                Boolean checkinsertdata = base.informacionPago(fecha,codtarjeta,entrega,id_cliente,total);
                 if(checkinsertdata==true) {
                     Toast.makeText(getApplicationContext(), "Nuevos Datos Ingresados", Toast.LENGTH_SHORT).show();
                 }else {
@@ -83,6 +89,14 @@ public class ActivityInformacionPago extends AppCompatActivity {
                 datePickerDialog.show();*/
             }
         });
+    }
+    public void llamar(){
+        Intent intent=getIntent();
+        totalCarrito.setText(intent.getStringExtra("total"));
+
+
+
+
     }
 
 }

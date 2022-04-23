@@ -54,15 +54,16 @@ public class SQLITEBase extends SQLiteOpenHelper {
             return true;
         }
     }
-    public Boolean informacionPago(String fecha, double total,String pago,String id_producto)
+    public Boolean informacionPago(String fecha, String pago,String destino,String id_producto,double total)
     {
         SQLiteDatabase DB = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
 
         contentValues.put("fecha", fecha);
-        contentValues.put("total", total);
         contentValues.put("forma_pago", pago);
+        contentValues.put("destino",destino);
         contentValues.put("id_producto", id_producto);
+        contentValues.put("total", total);
         long result=DB.insert("factura", null, contentValues);
         if(result==-1){
             return false;
