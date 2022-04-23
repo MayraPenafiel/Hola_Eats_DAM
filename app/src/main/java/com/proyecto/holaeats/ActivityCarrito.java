@@ -6,8 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -39,7 +38,6 @@ public class ActivityCarrito extends AppCompatActivity {
     ArrayList<CarritoCompras> carritoCompras ;
     TextView txtcantidad ,txtnombre,txtTotal;
     ImageView carritoimagen;
-    Button botoncontinuar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         setContentView(R.layout.activity_carrito_pedidos);
@@ -51,17 +49,16 @@ public class ActivityCarrito extends AppCompatActivity {
         carritoimagen=findViewById(R.id.imagenCarrito);
         recyclerView=findViewById(R.id.itemsCarrito);
         txtTotal=findViewById(R.id.textTotalPagar);
-        botoncontinuar=findViewById(R.id.botonContinuarCarrito);
 
         //carritoCompras.add(CarritoCompras("","",null,null,null));
-        sqliteBase=new SQLITEBase(getApplicationContext(),"carrito_base",null,4);
+        sqliteBase=new SQLITEBase(getApplicationContext(),"carrito_base",null,3);
         carritoCompras=new ArrayList<>();
         LinearLayoutManager manager=new LinearLayoutManager(this,RecyclerView.VERTICAL,false);
         recyclerView.setLayoutManager(manager);
         traerdatos();
         adaptadorCarrito= new AdaptadorCarrito(this,carritoCompras);
         recyclerView.setAdapter(adaptadorCarrito);
-        enviardatos();
+
         BottomNavigationView navigation = findViewById(R.id.bottom_navigation);
         navigation.setSelectedItemId(R.id.carrito);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
@@ -112,20 +109,9 @@ public class ActivityCarrito extends AppCompatActivity {
         double total=0;
         for (int i = 0; i < carritoCompras.size(); i++) {
             total= ((carritoCompras.get(i).getPrecio())*carritoCompras.get(i).getCantidad()+total);
-            txtTotal.setText(String.valueOf(total));
+            txtTotal.setText("$"+(total));
             System.out.println(total+"Aqui total");
         }
-
-    }
-    public void enviardatos(){
-        botoncontinuar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i =new Intent(ActivityCarrito.this,ActivityInformacionPago.class);
-                i.putExtra("total",txtTotal.getText().toString());
-                startActivity(i);
-            }
-        });
 
     }
 
