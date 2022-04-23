@@ -5,8 +5,8 @@ import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 public class ResponseClass implements Serializable {
-    @SerializedName("id")
-    private int id;
+    @SerializedName("personaId")
+    private int personaId;
 
     @SerializedName("username")
     private String username;
@@ -14,12 +14,12 @@ public class ResponseClass implements Serializable {
     @SerializedName("password")
     private String password;
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId_persona(int id) {
+        this.personaId = id;
     }
 
-    public int getId() {
-        return id;
+    public int getId_persona() {
+        return personaId;
     }
 
     public void setUsername(String username) {
@@ -42,7 +42,7 @@ public class ResponseClass implements Serializable {
     public String toString() {
         return
                 "ResponseClass{" +
-                        "id = '" + id + '\'' +
+                        "id = '" + personaId+ '\'' +
                         ",username = '" + username + '\'' +
                         ",password = '" + password + '\'' +
                         "}";
